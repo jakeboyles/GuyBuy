@@ -1,0 +1,383 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Roboto', sans-serif;
+  background-color: #F5F5F5;
+}
+body h2 {
+  color: #000;
+  font-weight: 400;
+  font-size: 25px;
+}
+body h3 {
+  font-weight: 400;
+}
+img {
+  max-width: 100%;
+}
+.search input {
+  width: 60%;
+  color: #000;
+  padding: 10px 20px;
+  float: left;
+  height: 50px;
+}
+.search select {
+  width: 20%;
+  padding: 10px 20px;
+  float: left;
+  height: 50px;
+  color: #000;
+  border: none;
+  overflow: hidden;
+  background: url(new_arrow.png) no-repeat right #ffffff;
+}
+.search .select2 {
+  float: left;
+  height: 50px !important;
+}
+.search .select2 .select2-selection__rendered {
+  padding-top: 10px;
+}
+.search .select2 .select2-selection__arrow {
+  top: 15px !important;
+}
+.search .select2 span {
+  height: 50px;
+}
+.search .btn {
+  border-radius: 0 !important;
+  height: 50px;
+  padding: 10px 20px;
+  width: 18%;
+  margin-left: 2%;
+  background: #E3291C;
+  color: #fff;
+  border: 2px solid #b62116;
+}
+.container-fluid {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:focus,
+.navbar-inverse .navbar-nav > .active > a:hover {
+  background: none !important;
+}
+.nav .open > a,
+.nav .open > a:focus,
+.nav .open > a:hover {
+  background-color: transparent;
+}
+nav {
+  background-color: #212121 !important;
+  padding: 20px;
+  color: #fff;
+  border: none !important;
+  height: 90px;
+  border-radius: 0px !important;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
+  margin-bottom: 0 !important;
+}
+nav .logo {
+  margin-top: -5px;
+}
+nav .logo img {
+  margin-top: -5px;
+}
+nav .logo:hover {
+  border: none;
+}
+nav img {
+  max-width: 190px;
+}
+nav > div {
+  margin: 0;
+  padding: 0;
+}
+nav .navbar-right {
+  margin-right: 0;
+}
+nav .navbar-right a:hover {
+  border: none;
+}
+nav .navbar-right li {
+  margin-left: 20px;
+}
+nav .navbar-right .dropdown-menu {
+  padding-top: 0px !important;
+  color: #000;
+  border-radius: 0px;
+  box-shadow: 0px !important;
+  padding: 20px;
+}
+nav .navbar-right .dropdown-menu a {
+  color: #000 !important;
+  padding: 0 !important;
+}
+nav .navbar-right .dropdown-menu a:hover {
+  padding: 0 !important;
+  border: none !important;
+  background: #23517C;
+  color: #fff;
+}
+nav .navbar-brand {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+nav a {
+  color: #fff !important;
+  text-decoration: none;
+  padding: 10px 0px 20px 0px !important;
+}
+nav a:hover {
+  border-bottom: 4px solid #fff;
+  background: transparent !important;
+}
+nav li {
+  display: inline;
+}
+nav .navbar-collapse {
+  float: right;
+}
+nav .navbar-header {
+  display: inline-block;
+}
+nav ul {
+  display: inline-block;
+}
+nav ul li {
+  display: inline;
+}
+.main-container {
+  overflow: hidden;
+}
+.main-container > div {
+  margin-left: 0;
+  padding-left: 0;
+}
+.form-horizontal .control-label {
+  text-align: left;
+}
+.sidebar {
+  padding-top: 5px;
+  margin-top: 20px;
+  padding-bottom: 50px;
+  padding-right: 20px;
+}
+.sidebar ul {
+  padding: 0px;
+  margin-left: 0px;
+}
+.sidebar ul li {
+  list-style: none;
+  padding: 5px 10px;
+  border-bottom: 2px solid #e8e8e8;
+}
+.sidebar ul li a {
+  font-size: 17px;
+}
+.sidebar ul li a:hover {
+  text-decoration: none;
+}
+.sidebar ul li:hover {
+  background-color: #fff;
+}
+.sidebar ul li:last-child {
+  border-bottom: 0;
+}
+.sidebar .to {
+  margin-left: -5px;
+  margin-right: 5px;
+}
+.sidebar .pricing {
+  margin-top: 20px;
+}
+.sidebar .pricing .col-md-5 {
+  padding: 0;
+}
+.sidebar .pricing span {
+  float: left;
+  width: 10%;
+  text-align: right;
+  padding-right: 4px;
+  margin-top: 4px;
+}
+.sidebar .pricing input {
+  width: 90%;
+  float: left;
+}
+.sidebar .pricing .btn {
+  margin-top: 20px;
+  margin-left: 0px;
+}
+.main-content {
+  margin-top: 0;
+  width: 106%;
+}
+.main-content .homePost {
+  padding-bottom: 30px;
+  padding-top: 20px;
+  border-bottom: 3px solid #ededed;
+}
+.main-content .homePost h3 {
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+.main-content .homePost h4 {
+  margin-top: 5px;
+}
+.main-content .homePost .mainPhoto {
+  max-height: 100px;
+}
+.main-content .homePost img {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 15px;
+}
+.main-content .homePost .bodyText {
+  margin-top: 15px;
+}
+.main-content .homePost .commentCount {
+  margin-top: 20px;
+}
+.main-content .homePost:last-child {
+  border-bottom: 0px;
+}
+.postShow {
+  margin-top: 50px;
+}
+.postShow h2 {
+  margin-top: 0;
+}
+.postShow h4 {
+  margin-bottom: 30px;
+}
+.postShow .comment {
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 3px solid #ededed;
+}
+.postShow form {
+  margin-top: 60px;
+}
+.postShow .commentSection {
+  margin-top: 80px;
+}
+.postShow .commentSection h2 {
+  margin-bottom: 40px;
+}
+.photo {
+  background-image: url("../images/photo.jpg");
+  background-position: bottom;
+  width: 110%;
+  height: 500px;
+  margin-left: -30px !important;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
+}
+.photo h2,
+.photo h3,
+.photo h4 {
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 3px 2px rgba(0, 0, 0, 0.5);
+  padding: 0px 20px;
+  font-weight: 600;
+}
+.photo h2:nth-child(2) {
+  margin-top: 0;
+}
+.photo .select2-selection__rendered {
+  padding-top: 10px;
+}
+.photo .select2.select2-container.select2-container--default {
+  display: block;
+  margin: 0px auto;
+}
+.photo .select2.select2-container.select2-container--default span {
+  height: 50px;
+}
+.photo select {
+  border: 0px;
+  padding: 15px 25px;
+  margin: 0px auto;
+  display: block;
+  margin-top: 30px;
+  text-transform: uppercase;
+  width: 40%;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.4);
+}
+.photo button {
+  margin: 0px auto;
+  padding: 10px 20px;
+  display: block;
+  margin-top: 25px;
+  font-size: 18px;
+  background: #E3291C;
+  color: #fff;
+  border: 2px solid #b62116;
+  text-transform: uppercase;
+}
+.photo h2 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 27px;
+  margin-top: 60px;
+}
+.photo h3 {
+  color: #fff;
+  font-size: 36px;
+}
+.photo h4 {
+  color: #fff;
+  font-size: 53px;
+}
+.home h3 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 40px;
+  margin-top: 30px;
+  text-transform: uppercase;
+}
+.home .homePost {
+  border-bottom: 2px solid #e8e8e8;
+  padding-bottom: 25px;
+}
+.home .homePost img {
+  max-width: 90px;
+}
+.home .homePost h4 {
+  margin-top: 0;
+}
+.home .homePost:last-child {
+  border-bottom: none;
+}
+.homePost {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.homePost img {
+  max-height: 130px;
+}
+.main-section {
+  margin-top: 10px;
+}
+.main-section h2 {
+  margin-left: 15px;
+}
+.main-section .homePost > div {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  min-height: 330px;
+}
+.main-section .homePost .mainPhoto {
+  height: 210px;
+}
+.main-section .homePost img {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 15px;
+  max-height: 190px;
+}
+
+/*# sourceMappingURL=app.css.map */
