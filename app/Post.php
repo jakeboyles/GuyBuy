@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -10,7 +11,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 class Post extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
-    use Authenticatable, CanResetPassword;
+    use Authenticatable, CanResetPassword, SearchableTrait;
 
     /**
      * The database table used by the model.
@@ -18,6 +19,13 @@ class Post extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var string
      */
     protected $table = 'posts';
+
+    protected $searchable = [
+        'columns' => [
+            'title' => 10,
+            'body' => 10,
+        ]
+    ];
 
     /**
      * The attributes that are mass assignable.
@@ -45,6 +53,11 @@ class Post extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function comments()
     {
         return $this->hasMany('App\Comment');
+    }
+
+    public function feedback()
+    {
+        return $this->hasMany('App\Feedback');
     }
 
     public function photos()

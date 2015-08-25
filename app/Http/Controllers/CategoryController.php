@@ -1,5 +1,5 @@
 <?php namespace App\Http\Controllers;
-
+use Illuminate\Http\Request;
 use App\Post;
 use App\Comment;
 use App\Category;
@@ -58,6 +58,15 @@ class CategoryController extends Controller {
     	$category = Category::where('id',$category)->get();
     	$community = Community::where("id",$community)->get();
         return view('category.home',['posts' => $posts,'category'=>$category,'community'=>$community]);
+    }
+
+
+    public function filter(Request $request)
+    {
+        $posts = Post::with('author','comments.author','community')->where('category_id',$request->category)->whereBetween('price', array( $request->to , $request->from))->where('community_id',$request->community)->get();
+    	$category = Category::where('id',$request->category)->get();
+    	$community = Community::where("id",$request->community)->get();
+        return view('category.home',['posts' => $posts,'category'=>$category,'community'=>$community]);   
     }
 
 

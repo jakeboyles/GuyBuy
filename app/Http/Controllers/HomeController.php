@@ -1,10 +1,19 @@
 <?php namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Post;
-use App\Comment;
 use App\Community;
-use Illuminate\Database\Eloquent;
-use Illuminate\Support\Facades\DB;
+use App\User;
+use App\Comment;
+use App\Media;
+use App\Category;
+use Storage;
+use File;
+use Auth;
+use Redirect;
+
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller {
 
@@ -43,8 +52,8 @@ class HomeController extends Controller {
 	public function index()
 	{
 
-		$posts = Post::with('author','comments.author','community')->get();    
-		$mostPopular = Post::with('author','comments.author','community')->get(); 
+		$posts = Post::with('author','comments.author','community')->orderBy('created_at', 'desc')->take(4)->get();   
+		$mostPopular = Post::with('author','comments.author','community')->take(4)->get(); 
 		$communities = Community::all();
 
 
@@ -59,8 +68,42 @@ class HomeController extends Controller {
 	 */
 	public function dashboard()
 	{
+		$user = User::find(Auth::user()->id);
+		$communitys = Community::all() ->lists('name', 'id');
+		return view('pages.dashboard',['user'=>$user, 'communities'=>$communitys]);
+	}
 
-		return view('pages.dashboard');
+
+	public function updateUser(Request $request)
+	{
+
+		$this->validate($request, [
+        'email' => 'required|email|unique:users,email,'.Auth::user()->id,
+        'name' => 'required',
+        ]);
+
+		$name = null;
+        if($request->hasFile('filefield')) {
+            $file = $request->file('filefield');
+            $name = time(). '-' .$file->getClientOriginalName();
+            $file->move(public_path().'/avatars/', $name);
+        }
+
+        $user = User::find(Auth::user()->id);
+
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->name = $request->name;
+        $user->community_id = $request->community_id;
+
+        if(!empty($file))
+        {
+            $user->profile_picture = $name;
+        }
+
+        $user->save();
+
+        return Redirect('/')->with('message', 'User Saved');
 	}
 
 }

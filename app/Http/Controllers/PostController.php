@@ -11,7 +11,10 @@ use App\Category;
 use Storage;
 use File;
 use Auth;
+use Form;
 use Redirect;
+use Validator;
+use Illuminate\Support\Str;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -27,6 +30,7 @@ class PostController extends Controller
     {
         //
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -50,6 +54,15 @@ class PostController extends Controller
     public function store(Request $request)
     {
 
+        $this->validate($request, [
+        'title' => 'required|max:255',
+        'body' => 'required',
+        'price' => 'required',
+        'category_id'=>'required',
+        'community_id' => 'required',
+        'filefield'=>'required',
+        ]);
+
 
         $post = new Post();
         $post->title = $request->title;
@@ -60,16 +73,28 @@ class PostController extends Controller
         $post->community_id = $request->community;
         $post->save();
 
-        if($request->hasFile('filefield')) {
-            $file = $request->file('filefield');
-            $name = time(). '-' .$file->getClientOriginalName();
-            $file->move(public_path().'/uploads/', $name);
-            $media = new Media();
-            $media->name = $name;
-            $media->post_id = $post->id;
-            $media->save();
-        }
 
+        $files = $request->file('filefield');
+
+        foreach ($files as $file) {
+            // Validate each file
+            $rules = array('file' => 'required'); // 'required|mimes:png,gif,jpeg,txt,pdf,doc'
+            $validator = Validator::make(array('file'=> $file), $rules);
+
+            if($validator->passes()) {
+                $file = $file;
+                $name = time(). '-' .$file->getClientOriginalName();
+                $upload_success = $file->move(public_path().'/uploads/', $name);
+                $media = new Media();
+                $media->name = $name;
+                $media->post_id = $post->id;
+                $media->save();
+
+            } else {
+                // redirect back with errors.
+                return Redirect::to('upload')->withInput()->withErrors($validator);
+            }
+        }
 
         return Redirect('/')->with('message', 'Post created');
     }
@@ -121,4 +146,24 @@ class PostController extends Controller
     {
         //
     }
+
+
+
+    public function search(Request $request)
+    {
+
+
+        $search = $request->search;
+        if($request->category != 0)
+        {
+        $posts = Post::search($request->search)->where('category_id',$request->category)->get();
+        }
+        else
+        {
+        $posts = Post::search($request->search)->get();    
+        }
+        return view('posts.search',['posts' => $posts, 'search'=>Str::title($search)]);
+    }
+
+    
 }

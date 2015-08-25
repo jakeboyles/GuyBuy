@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Comment;
 use App\Post;
+use App\Offer;
 use Auth;
 
 use App\Http\Requests;
@@ -40,12 +41,32 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
+        
+        if($request->offer!=='')
+        {
+            $offer = new Offer();
+            $offer->price = $request->offer;
+            $offer->post_id = $request->post_id;
+            $offer->type = 1;
+            $offer->user_id = Auth::user()->id;
+            $offer->save();
+        }
+        
+
         $comment = new Comment();
         $comment->body = $request->body;
         $comment->post_id = $request->post_id;
-        $comment->offer = $request->offer;
         $comment->user_id = Auth::user()->id;
+         if($request->offer!==''){
+            $comment->offer_id = $offer->id;
+         }
         $comment->save();
+
+        if($request->offer!=='')
+        {
+        $offer->comment_id = $comment->id;
+        $offer->save();
+        }
 
         $post = Post::where('id',$request->post_id)->get();
 

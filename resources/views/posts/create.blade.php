@@ -43,7 +43,8 @@
                 <label class="col-md-4 control-label">Image</label>
 
                 <div class="col-md-6">
-                    <input type="file" name="filefield">
+                {!! Form::file('filefield', array('multiple'=>true)) !!}
+
                 </div>
             </div>
 

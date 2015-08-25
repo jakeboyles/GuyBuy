@@ -25,7 +25,6 @@ View::composer('partials.nav', function ($view)
     $view->with('categories', $categories);
 });
 
-
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
@@ -35,13 +34,25 @@ Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
 Route::get('community/{community}', 'CommunityController@showPosts');
 Route::get('{community}/category/{category}', 'CategoryController@showPosts');
+Route::post('category/filter', 'CategoryController@filter');
 
+Route::post('user/update','HomeController@updateUser');
+
+Route::get('user/profile/{id}','UserController@showProfile');
+
+
+Route::post('post/search','PostController@search');
+Route::post('community/filter','CommunityController@filter');
+
+
+Route::post('community/choose','CommunityController@choose');
 
 Route::group(['middleware' => 'auth'], function() {
 	Route::get('/post/create','PostController@create');
 	Route::post('/post/store','PostController@store');
 	Route::post('/comment/store','CommentController@store');
 	Route::post('/offer/store','OfferController@store');
+
 });
 
 Route::get('/{community}/post/{id}','PostController@show');

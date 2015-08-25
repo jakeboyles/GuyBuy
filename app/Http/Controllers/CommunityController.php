@@ -5,6 +5,7 @@ use App\Comment;
 use App\Community;
 use Illuminate\Database\Eloquent;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class CommunityController extends Controller {
 
@@ -53,9 +54,23 @@ class CommunityController extends Controller {
 
 	public function showPosts($community)
     {
-    	$posts = Post::with('author','comments.author','community')->where('community_id',$community)->get();
+    	$posts = Post::with('author','comments.author','community')->orderBy('created_at', 'desc')->where('community_id',$community)->get();
     	$community = Community::where('id',$community)->get();
         return view('community.home',['posts' => $posts,'community'=>$community]);
+    }
+
+    public function choose(Request $request)
+    {
+    	return Redirect('/community/'.$request->communties);
+    }
+
+
+    public function filter(Request $request)
+    {
+
+        $posts = Post::with('author','comments.author','community')->whereBetween('price', array( $request->to , $request->from))->where('community_id',$request->community)->get();
+    	$community = Community::where('id',$request->community)->get();
+        return view('community.home',['posts' => $posts,'community'=>$community]);    
     }
 
 

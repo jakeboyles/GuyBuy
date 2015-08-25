@@ -6,13 +6,17 @@
     </div>
 
     <div class="col-md-6 search">
-        <input type="text" name="search" placeholder="I'm Looking For...">
-        <select name="category" id="categories">
-        @foreach($categories as $category)
-        <option value="{{$category->name}}">{{$category->name}}</option>
-        @endforeach
-        </select>
-        <input type="submit" class="search btn btn-primary" value="Search">
+        <form class="form-horizontal" enctype="multipart/form-data" role="form" method="POST"  action="{{ URL::to('/post/search') }}">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <input type="text" name="search" placeholder="I'm Looking For...">
+            <select name="category" id="categories">
+            <option value="0">All Categories</option>
+            @foreach($categories as $category)
+            <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
+            </select>
+            <input type="submit" class="search btn btn-primary" value="Search">
+        </form>
     </div>
 
     <div class="collapse navbar-collapse col-md-3" id="bs-example-navbar-collapse-1">

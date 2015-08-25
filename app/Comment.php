@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Offer;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -30,6 +31,11 @@ class Comment extends Model implements AuthenticatableContract, CanResetPassword
     public function post()
     {
         return $this->belongsTo('App\Post', 'post_id');
+    }
+
+    public function offer()
+    {
+        return $this->hasOne('App\Offer','comment_id');
     }
 
     public function author()
