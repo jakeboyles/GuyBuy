@@ -15,13 +15,13 @@
 		<form class="form-horizontal" enctype="multipart/form-data" role="form" method="POST"  action="{{ URL::to('/community/filter') }}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-			<div class="col-md-5">
+			<div class="col-xs-5">
 				<span>$</span><input class="money" name="to" type="text"> 
 			</div>
 
-			<div class="to col-md-1"><span>to</span></div>
+			<div class="to col-xs-1"><span>to</span></div>
 
-			<div class="col-md-5">
+			<div class="col-xs-5">
 				<span>$</span><input class="money" name="from" type="text"> 
 			</div>
 
@@ -47,13 +47,13 @@
 		<form class="form-horizontal" enctype="multipart/form-data" role="form" method="POST"  action="{{ URL::to('/category/filter') }}">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-			<div class="col-md-5">
+			<div class="col-xs-5">
 				<span>$</span><input name="to" class="money" type="text"> 
 			</div>
 
-			<div class="to col-md-1"><span>to</span></div>
+			<div class="to col-xs-1"><span>to</span></div>
 
-			<div class="col-md-5">
+			<div class="col-xs-5">
 				<span>$</span><input name="from" class="money" type="text"> 
 			</div>
 
