@@ -611,6 +611,7 @@ footer {
   width: 100%;
   background-color: #000;
   color: #fff;
+  margin-top: 40px;
 }
 footer img {
   max-width: 30px;
