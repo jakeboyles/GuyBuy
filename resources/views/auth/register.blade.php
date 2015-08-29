@@ -8,7 +8,7 @@
 
 <div class="container-fluid">
 
-    <div class="col-md-12 main-section dashboard">
+    <div class="col-md-12 main-section dashboard minContainer">
 
         <h2>Register</h2>
 

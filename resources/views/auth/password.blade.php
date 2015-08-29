@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-<div class="col-md-12 main-section dashboard">
+<div class="col-md-12 main-section dashboard minContainer">
 
     <h2>Forgot Password</h2>
    

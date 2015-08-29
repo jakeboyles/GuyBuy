@@ -1,7 +1,8 @@
 @extends('app')
 
 @section('content')
-    <div class="col-md-12 main-section dashboard">
+<div class="container-fluid">
+    <div class="col-md-12 main-section dashboard minContainer">
 
     <h2>Reset Password</h2>
 
@@ -44,4 +45,5 @@
             </div>
         </form>
     </div>
+</div>
 @endsection
