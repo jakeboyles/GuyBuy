@@ -31,8 +31,10 @@
         <h4>${{$post[0]->price}}</h4>
         <p>{{$post[0]->body}}</p>
 
+        @if(Auth:check())
         @if($post[0]->user_id != Auth::user()->id)
         <button type="button" data-toggle="modal" data-target="#modal" href="#commentPost" class="btn-primary btn">Make Offer</button>
+        @endif
         @endif
 
         </div>
