@@ -30,7 +30,7 @@
 
 
 	<div class="col-md-6">
-		<h3>Recent Listings</h2>
+		<h3><i class="fa fa-newspaper-o"></i> Recent Listings</h2>
 		@foreach ($posts as $post)
 		<div class="homePost">
 			<div class="row">
@@ -41,7 +41,7 @@
 				<div class="col-md-9">
 				<h4><a href="/{{$post->community()->first()->id}}/post/{{$post->id}}">{{$post->title}}</a> <span class="pull-right">${{$post->price}}</span></h4>
 				
-				<p class="bodyText">{{$post->body}}</p>
+				<p class="bodyText">{{str_limit($post->body,90)}}</p>
 
 				<p class="commentCount pull-left">{{$post->commentsCount()}} <i class="fa fa-comments"></i></p>
 				<p class="commentCount pull-right"><i class="fa fa-home"></i> {{$post->community()->first()->name}}, {{$post->community()->first()->state}}</p>
@@ -54,7 +54,7 @@
 	</div>
 
 	<div class="col-md-5 col-md-offset-1">
-		<h3>Most Popular Listings</h2>
+		<h3><i class="fa fa-thumbs-up"></i> Most Popular Listings</h2>
 		@foreach ($mostPopular as $post)
 		<div class="homePost">
 			<div class="row">
@@ -65,7 +65,7 @@
 				<div class="col-md-9">
 				<h4><a href="/{{$post->community()->first()->id}}/post/{{$post->id}}">{{$post->title}}</a> <span class="pull-right">${{$post->price}}</span></h4>
 				
-				<p class="bodyText">{{$post->body}}</p>
+				<p class="bodyText">{{str_limit($post->body,90)}}</p>
 
 				<p class="commentCount pull-left">{{$post->commentsCount()}} <i class="fa fa-comments"></i></p>
 				<p class="commentCount pull-right"><i class="fa fa-home"></i> {{$post->community()->first()->name}}, {{$post->community()->first()->state}}</p>

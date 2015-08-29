@@ -55,6 +55,16 @@ class Post extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->hasMany('App\Comment');
     }
 
+    public function offers()
+    {
+        return $this->hasMany('App\Offer');
+    }
+
+    public function accepted()
+    {
+        return $this->hasOne('App\Offer','sold');
+    }
+
     public function feedback()
     {
         return $this->hasMany('App\Feedback');

@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@section('title') Laravel 5 Sample Site @show</title>
+    <title>BuysGuys: Buy,Trade &amp; Sell</title>
     @section('meta_keywords')
         <meta name="keywords" content="your, awesome, keywords, here"/>
     @show @section('meta_author')
-        <meta name="author" content="Jon Doe"/>
+        <meta name="author" content="Jake Boyles"/>
     @show @section('meta_description')
         <meta name="description"
               content="Lorem ipsum dolor sit amet, nihil fabulas et sea, nam posse menandri scripserit no, mei."/>
@@ -23,6 +23,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
         <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
         <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
 
     @yield('styles')
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -42,6 +43,8 @@
         @yield('content')
     </div>
 </div>
+
+@include('partials.footer')
 
 
 @yield('scripts')

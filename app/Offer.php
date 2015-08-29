@@ -32,10 +32,6 @@ class Offer extends Model implements AuthenticatableContract, CanResetPasswordCo
         return $this->belongsTo('App\Post', 'post_id');
     }
 
-    public function comment()
-    {
-        return $this->belongsTo('App\Comment');
-    }
 
     public function author()
     {

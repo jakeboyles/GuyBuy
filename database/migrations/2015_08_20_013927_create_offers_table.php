@@ -16,7 +16,7 @@ class CreateOffersTable extends Migration
             $table->increments('id');
             $table->string('post_id');
             $table->string('user_id')->index();
-            $table->string('price');
+            $table->string('post_creator')->index();
             $table->string('type');
             $table->string('content');
             $table->timestamps();

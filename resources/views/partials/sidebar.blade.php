@@ -8,7 +8,6 @@
 	</ul>
 
 	@if (Request::segment(2) !== 'post' && Request::segment(2) !== 'category' && Request::segment(1) != 'category')
-			<hr>
 		<h2>Pricing</h2>
 
 		<div class="pricing">
@@ -17,13 +16,13 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 			<div class="col-md-5">
-				<span>$</span><input name="to" type="text"> 
+				<span>$</span><input class="money" name="to" type="text"> 
 			</div>
 
 			<div class="to col-md-1"><span>to</span></div>
 
 			<div class="col-md-5">
-				<span>$</span><input name="from" type="text"> 
+				<span>$</span><input class="money" name="from" type="text"> 
 			</div>
 
 			<input type="hidden" value="{{$community[0]->id}}" name="community">
@@ -40,7 +39,6 @@
 
 	@if (Request::segment(2) == 'category' || Request::segment(1) == 'category' )
 
-			<hr>
 
 		<h2>Pricing</h2>
 
@@ -50,13 +48,13 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 			<div class="col-md-5">
-				<span>$</span><input name="to" type="text"> 
+				<span>$</span><input name="to" class="money" type="text"> 
 			</div>
 
 			<div class="to col-md-1"><span>to</span></div>
 
 			<div class="col-md-5">
-				<span>$</span><input name="from" type="text"> 
+				<span>$</span><input name="from" class="money" type="text"> 
 			</div>
 
 			<input type="hidden" value="{{$community[0]->id}}" name="community">

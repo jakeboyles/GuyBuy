@@ -7,6 +7,8 @@ use App\User;
 use App\Comment;
 use App\Media;
 use App\Category;
+use App\Feedback;
+use App\Offer;
 use Storage;
 use File;
 use Auth;
@@ -52,13 +54,14 @@ class HomeController extends Controller {
 	public function index()
 	{
 
-		$posts = Post::with('author','comments.author','community')->orderBy('created_at', 'desc')->take(4)->get();   
-		$mostPopular = Post::with('author','comments.author','community')->take(4)->get(); 
+		$posts = Post::with('author','comments.author','community')->where('sold',NULL)->orderBy('created_at', 'desc')->take(4)->get();   
+		$mostPopular = Post::with('author','comments.author','community')->where('sold',NULL)->take(4)->get(); 
 		$communities = Community::all();
 
 
 		return view('pages.home',['posts'=>$posts, 'mostPopular'=>$mostPopular,'communities'=>$communities]);
 	}
+
 
 
 	/**
@@ -70,7 +73,10 @@ class HomeController extends Controller {
 	{
 		$user = User::find(Auth::user()->id);
 		$communitys = Community::all() ->lists('name', 'id');
-		return view('pages.dashboard',['user'=>$user, 'communities'=>$communitys]);
+		$feedbacksGiven = Feedback::where('giver_id',Auth::user()->id)->get();
+		$feedbacks = Feedback::where('receiver_id',Auth::user()->id)->get();
+		$offers = Offer::where('post_creator',Auth::user()->id)->whereHas('post', function($q){ $q->where('sold', NULL);})->orderBy('created_at', 'desc')->get();   
+		return view('pages.dashboard',['user'=>$user, 'communities'=>$communitys,'offers'=> $offers,'feedbacks'=>$feedbacks, 'feedbacksGiven'=>$feedbacksGiven]);
 	}
 
 

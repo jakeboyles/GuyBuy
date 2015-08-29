@@ -12,6 +12,7 @@
 */
 
 use App\Category;
+use App\Offer;
 
 View::composer('partials.sidebar', function ($view)
 {
@@ -19,16 +20,13 @@ View::composer('partials.sidebar', function ($view)
     $view->with('categories', $categories);
 });
 
-View::composer('partials.nav', function ($view)
-{
-    $categories = Category::all();
-    $view->with('categories', $categories);
-});
+
 
 Route::controllers([
     'auth' => 'Auth\AuthController',
     'password' => 'Auth\PasswordController',
 ]);
+
 
 Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
@@ -40,12 +38,16 @@ Route::post('user/update','HomeController@updateUser');
 
 Route::get('user/profile/{id}','UserController@showProfile');
 
+Route::get('feedback/{id}','UserController@leaveFeedback');
+Route::post('feedback/store','UserController@storeFeedback');
+
+
 
 Route::post('post/search','PostController@search');
 Route::post('community/filter','CommunityController@filter');
-
-
 Route::post('community/choose','CommunityController@choose');
+
+Route::post('offer/accept/{id}','OfferController@accept');
 
 Route::group(['middleware' => 'auth'], function() {
 	Route::get('/post/create','PostController@create');
@@ -60,6 +62,7 @@ Route::get('/{community}/post/{id}','PostController@show');
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 	Route::get('dashboard', 'HomeController@dashboard');
 });
+
 
 
 

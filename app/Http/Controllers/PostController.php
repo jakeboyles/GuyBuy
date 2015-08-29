@@ -55,12 +55,11 @@ class PostController extends Controller
     {
 
         $this->validate($request, [
-        'title' => 'required|max:255',
+        'title' => 'required|max:90',
         'body' => 'required',
         'price' => 'required',
-        'category_id'=>'required',
-        'community_id' => 'required',
-        'filefield'=>'required',
+        'category'=>'required',
+        'community' => 'required',
         ]);
 
 
@@ -75,13 +74,8 @@ class PostController extends Controller
 
 
         $files = $request->file('filefield');
-
         foreach ($files as $file) {
             // Validate each file
-            $rules = array('file' => 'required'); // 'required|mimes:png,gif,jpeg,txt,pdf,doc'
-            $validator = Validator::make(array('file'=> $file), $rules);
-
-            if($validator->passes()) {
                 $file = $file;
                 $name = time(). '-' .$file->getClientOriginalName();
                 $upload_success = $file->move(public_path().'/uploads/', $name);
@@ -89,11 +83,6 @@ class PostController extends Controller
                 $media->name = $name;
                 $media->post_id = $post->id;
                 $media->save();
-
-            } else {
-                // redirect back with errors.
-                return Redirect::to('upload')->withInput()->withErrors($validator);
-            }
         }
 
         return Redirect('/')->with('message', 'Post created');
@@ -156,11 +145,11 @@ class PostController extends Controller
         $search = $request->search;
         if($request->category != 0)
         {
-        $posts = Post::search($request->search)->where('category_id',$request->category)->get();
+        $posts = Post::search($request->search)->where('sold',NULL)->where('category_id',$request->category)->get();
         }
         else
         {
-        $posts = Post::search($request->search)->get();    
+        $posts = Post::search($request->search)->where('sold',NULL)->get();    
         }
         return view('posts.search',['posts' => $posts, 'search'=>Str::title($search)]);
     }

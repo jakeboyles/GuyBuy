@@ -21,7 +21,7 @@
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
             <div class="form-group">
-                <label class="col-md-4 control-label">Title</label>
+                <label class="col-md-4 control-label">Title *</label>
 
                 <div class="col-md-6">
                     <input type="text" class="form-control" name="title"
@@ -30,7 +30,7 @@
             </div>
 
             <div class="form-group">
-                <label class="col-md-4 control-label">Body</label>
+                <label class="col-md-4 control-label">Body *</label>
 
                 <div class="col-md-6">
                     <textarea class="form-control" name="body"
@@ -40,10 +40,11 @@
 
 
             <div class="form-group">
-                <label class="col-md-4 control-label">Image</label>
+                <label class="col-md-4 control-label">Image*</label>
 
                 <div class="col-md-6">
-                {!! Form::file('filefield', array('multiple'=>true)) !!}
+                <p>You can select more than one file by holding shift</p>
+                {!! Form::file('filefield[]', array('multiple'=>true)) !!}
 
                 </div>
             </div>
@@ -51,7 +52,7 @@
 
 
             <div class="form-group">
-                <label class="col-md-4 control-label">Category</label>
+                <label class="col-md-4 control-label">Category*</label>
 
                 <div class="col-md-6">
                     <select name="category" id="categories">
@@ -64,22 +65,23 @@
 
 
             <div class="form-group">
-                <label class="col-md-4 control-label">Community</label>
+                <label class="col-md-4 control-label">Community*</label>
 
                 <div class="col-md-6">
-                     <select name="community">
-                     @foreach($communitys as $community)
-                      <option value="{{$community->id}}">{{$community->name}}</option>
-                      @endforeach
-                    </select> 
+                     <select placeholder="Where is the" data-placeholder="Where Do You Live?" class="selectAuto" name="community">
+                        <option></option>
+                        @foreach($communitys as $community)
+                            <option value="{{$community->id}}">{{$community->name}},{{$community->state}}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="col-md-4 control-label">Price</label>
+                <label class="col-md-4 control-label">Price / Trade Value *</label>
 
                 <div class="col-md-6">
-                    <input type="text" class="form-control" name="price"
+                    <input type="text" class="form-control money" name="price"
                            value="{{ old('price') }}">
                 </div>
             </div>

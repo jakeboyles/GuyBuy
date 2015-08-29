@@ -33,6 +33,12 @@
                 <li class="{{ (Request::is('auth/register') ? 'active' : '') }}"><a
                             href="{{ URL::to('auth/register') }}">Register</a></li>
             @else
+
+                @if($offers!=='')
+                    <a class="offerLink" href="/admin/dashboard">
+                    <li class="numOffers"><i class="fa fa-money"></i> {{$offers}}</li>
+                    </a>
+                @endif
                 <li class="dropdown">
                     <a href="{{ URL::to('admin/dashboard') }}" class="dropdown-toggle" data-toggle="dropdown" role="button"
                        aria-expanded="false"><i class="fa fa-user"></i> {{ Auth::user()->name }} <i

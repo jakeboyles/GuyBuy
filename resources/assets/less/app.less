@@ -2,16 +2,24 @@ body {
 	padding:0px;
 	margin:0px;
 	font-family: 'Roboto', sans-serif;
-	background-color:lighten(#F5F5F5,1);
+	background-color:darken(#F5F5F5,1);
 
 	h2 {
 		color:#000;
 		font-weight:400;
 		font-size:25px;
+
+		i {
+			margin-right:10px;
+		}
 	}
 
 	h3 {
 		font-weight:400;
+
+		i {
+			margin-right:10px;
+		}
 	}
 }
 
@@ -94,10 +102,35 @@ nav {
 	padding:20px;
 	color:#fff;
 	border:none !important;
-	height:90px;
+	height:auto;
+
 	border-radius: 0px !important;
 	box-shadow: 0px 0px 5px rgba(0,0,0,.6);
 	margin-bottom:0 !important;
+
+
+	.numOffers {
+		margin-top:3px;
+		background-color:red;
+		border-radius:10px;
+		padding:10px 15px;
+		margin-right:10px;
+
+		i {
+			margin-right:4px;
+		}
+	}
+
+	.offerLink {
+		display:block;
+		float:left;
+		margin-top:3px;
+
+		&:hover {
+			text-decoration:none;
+			background:darken(red,20);
+		}
+	}
 
 	.logo {
 		margin-top:-5px;
@@ -273,6 +306,11 @@ nav {
 			margin-left:0px;
 		}
 	}
+
+	h2 {
+		border-bottom:2px dotted lighten(#000,80);
+		padding-bottom:9px;
+	}
 }
 
 .main-content {
@@ -430,7 +468,7 @@ nav {
 			padding:10px 20px;
 			display:block;
 			margin-top:25px;
-			font-size:18px;
+			font-size:16px;
 			background:#E3291C;
 			color:#fff;
 			border:2px solid darken(#E3291C,10);
@@ -462,6 +500,8 @@ nav {
 		margin-bottom:60px;
 		margin-top:50px;
 		text-transform: uppercase;
+		border-bottom:2px dotted lighten(#000,80);
+		padding-bottom:14px;
 	}
 
 	.homePost {
@@ -486,7 +526,8 @@ nav {
 	margin-top:20px;
 	margin-bottom:20px;
 	img {
-		max-height:130px;
+		width:100%;
+		max-height:180px;
 	}
 }
 
@@ -498,6 +539,10 @@ nav {
 		margin-left:15px;
 		font-weight:500;
 		font-size:27px;
+		border-bottom:2px dotted lighten(#000,80);
+		margin-top:30px;
+		padding-bottom:10px;
+		margin-left:0;
 	}
 
 	.homePost {
@@ -518,11 +563,34 @@ nav {
 		.imageContainer {
 			height:190px;
 		img {
-			width:auto;
+			width:100%;
 			max-width:100%;
 			margin-top:15px;
 			max-height:170px;
 		}
+		}
+	}
+
+	.homePost.noPost {
+		height:auto;
+		min-height:auto;
+
+		>div {
+			min-height:auto;
+
+			h2,h4 {
+				text-align:center;
+				margin:0;
+			}
+
+			h2 {
+				margin-top:15px;
+				margin-bottom:20px;
+			}
+
+			h4 {
+				padding-bottom:30px;
+			}
 		}
 	}
 }
@@ -558,6 +626,7 @@ nav {
 			margin-bottom:0;
 			text-align:center;
 			margin-left:0;
+			border:none;
 		}
 
 		h4 {
@@ -602,6 +671,7 @@ nav {
 			margin-bottom:10px;
 			color:#000 !important;
 			font-size:23px !important;
+			border:none;
 		}
 	}
 
@@ -609,3 +679,189 @@ nav {
 		margin-top:40px;
 	}
 }
+
+.dashboardSidebar {
+	ul {
+		li {
+			display:block;
+			width:100%;
+
+			a {
+				border:none !important;
+				border-radius:0px;
+			}
+		}
+
+		li:hover {
+
+		}
+	}
+}
+
+#offers {
+	h2 {
+		margin-top:0;
+		margin-bottom:30px;
+	}
+
+	.btn {
+		font-size:13px;
+		margin-top:10px;
+		padding:8px 10px;
+	}
+	.offer {
+		padding-bottom:30px;
+		margin-bottom:20px;
+		padding-top:10px;
+		border-bottom:2px solid darken(#F8F8F8,6);
+	}
+
+	.offer.noOffer {
+		text-align: left;
+		h2{
+			margin:0;
+			padding:0;
+			margin-bottom:15px;
+			border:none;
+		}
+	}
+
+	.offer:last-child {
+		border:none;
+	}
+
+	img {
+		border-radius: 50%;
+    	margin-right: 20px;
+    	max-height: 90px;
+    	max-width: 90px;
+	}
+
+	h4 {
+		font-size:20px;
+		margin-top:0
+	}
+
+	p {
+		font-size:14px;
+	}
+}
+
+
+.dashboard{
+	> h2 {
+		margin-bottom:30px;
+	}
+
+	min-height:500px;
+}
+
+footer {
+	width:100%;
+	background-color:#000;
+	margin-top:50px;
+	color:#fff;
+
+	img {
+		max-width:30px;
+		margin-left:25px;
+		margin-right:5px;
+	}
+
+	p {
+		color:#fff;
+	}
+
+	i {
+		font-size:30px !important;
+		float:right;
+		margin-left:30px;
+		margin-top:23px;
+	}
+
+	ul {
+		margin-top:20px;
+		margin-bottom:30px;
+		margin-left:0;
+		padding-left:0;
+		li {
+			display:inline;
+			padding-right:20px;
+
+			a {
+				color:#fff;
+				font-size:15px;
+			}
+
+			a:hover {
+				color:darken(#fff,30);
+				text-decoration:none;
+			}
+		}
+	}
+
+	h2 {
+		color:#fff;
+	}
+}
+
+
+.smallPhoto:hover {
+	cursor: pointer;
+}
+
+
+.feedbackForm {
+	margin-top:40px;
+	select {
+		display:inline-block;
+		width:auto;
+	}
+}
+
+
+#userSettings {
+	select {
+		width:200px;
+	}
+}
+
+#feedback, #feedbackGiven {
+	.feedback {
+		margin-bottom:20px;
+		padding-bottom:20px;
+		border-bottom:2px solid darken(#F2F2F2,3);
+		img {
+			max-width:100px;
+		}
+	}
+}
+
+@media(max-width:990px)
+{
+
+	.photo {
+		margin-left:0;
+		width:130%;
+		height:auto !important;
+		padding-bottom:30px;
+	}
+
+	.imageContainer, .mainPhoto {
+		height:auto !important;
+	}
+
+	.logo img {
+		margin-bottom:10px;
+	}
+	.search {
+		input, select {
+			width:50%
+		}
+		.btn {
+			margin-top:10px;
+			width:100%;
+		}
+	}
+}
+

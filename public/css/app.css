@@ -2,15 +2,21 @@ body {
   padding: 0px;
   margin: 0px;
   font-family: 'Roboto', sans-serif;
-  background-color: #f8f8f8;
+  background-color: #f2f2f2;
 }
 body h2 {
   color: #000;
   font-weight: 400;
   font-size: 25px;
 }
+body h2 i {
+  margin-right: 10px;
+}
 body h3 {
   font-weight: 400;
+}
+body h3 i {
+  margin-right: 10px;
 }
 img {
   max-width: 100%;
@@ -81,10 +87,29 @@ nav {
   padding: 20px;
   color: #fff;
   border: none !important;
-  height: 90px;
+  height: auto;
   border-radius: 0px !important;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
   margin-bottom: 0 !important;
+}
+nav .numOffers {
+  margin-top: 3px;
+  background-color: red;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-right: 10px;
+}
+nav .numOffers i {
+  margin-right: 4px;
+}
+nav .offerLink {
+  display: block;
+  float: left;
+  margin-top: 3px;
+}
+nav .offerLink:hover {
+  text-decoration: none;
+  background: #990000;
 }
 nav .logo {
   margin-top: -5px;
@@ -223,6 +248,10 @@ nav ul li {
   margin-top: 20px;
   margin-left: 0px;
 }
+.sidebar h2 {
+  border-bottom: 2px dotted #cccccc;
+  padding-bottom: 9px;
+}
 .main-content {
   margin-top: 0;
   width: 106%;
@@ -351,7 +380,7 @@ nav ul li {
   padding: 10px 20px;
   display: block;
   margin-top: 25px;
-  font-size: 18px;
+  font-size: 16px;
   background: #E3291C;
   color: #fff;
   border: 2px solid #b62116;
@@ -377,6 +406,8 @@ nav ul li {
   margin-bottom: 60px;
   margin-top: 50px;
   text-transform: uppercase;
+  border-bottom: 2px dotted #cccccc;
+  padding-bottom: 14px;
 }
 .home .homePost {
   border-bottom: 2px solid #e8e8e8;
@@ -396,7 +427,8 @@ nav ul li {
   margin-bottom: 20px;
 }
 .homePost img {
-  max-height: 130px;
+  width: 100%;
+  max-height: 180px;
 }
 .main-section {
   margin-top: 10px;
@@ -405,6 +437,10 @@ nav ul li {
   margin-left: 15px;
   font-weight: 500;
   font-size: 27px;
+  border-bottom: 2px dotted #cccccc;
+  margin-top: 30px;
+  padding-bottom: 10px;
+  margin-left: 0;
 }
 .main-section .homePost {
   min-height: 390px;
@@ -421,10 +457,29 @@ nav ul li {
   height: 190px;
 }
 .main-section .homePost .imageContainer img {
-  width: auto;
+  width: 100%;
   max-width: 100%;
   margin-top: 15px;
   max-height: 170px;
+}
+.main-section .homePost.noPost {
+  height: auto;
+  min-height: auto;
+}
+.main-section .homePost.noPost > div {
+  min-height: auto;
+}
+.main-section .homePost.noPost > div h2,
+.main-section .homePost.noPost > div h4 {
+  text-align: center;
+  margin: 0;
+}
+.main-section .homePost.noPost > div h2 {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+.main-section .homePost.noPost > div h4 {
+  padding-bottom: 30px;
 }
 .profile h2 {
   margin-bottom: 40px;
@@ -449,6 +504,7 @@ nav ul li {
   margin-bottom: 0;
   text-align: center;
   margin-left: 0;
+  border: none;
 }
 .profile .counts h4 {
   text-align: center;
@@ -484,9 +540,151 @@ nav ul li {
   margin-bottom: 10px;
   color: #000 !important;
   font-size: 23px !important;
+  border: none;
 }
 .profile .nav-tabs {
   margin-top: 40px;
+}
+.dashboardSidebar ul li {
+  display: block;
+  width: 100%;
+}
+.dashboardSidebar ul li a {
+  border: none !important;
+  border-radius: 0px;
+}
+#offers h2 {
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+#offers .btn {
+  font-size: 13px;
+  margin-top: 10px;
+  padding: 8px 10px;
+}
+#offers .offer {
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+  padding-top: 10px;
+  border-bottom: 2px solid #e9e9e9;
+}
+#offers .offer.noOffer {
+  text-align: left;
+}
+#offers .offer.noOffer h2 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 15px;
+  border: none;
+}
+#offers .offer:last-child {
+  border: none;
+}
+#offers img {
+  border-radius: 50%;
+  margin-right: 20px;
+  max-height: 90px;
+  max-width: 90px;
+}
+#offers h4 {
+  font-size: 20px;
+  margin-top: 0;
+}
+#offers p {
+  font-size: 14px;
+}
+.dashboard {
+  min-height: 500px;
+}
+.dashboard > h2 {
+  margin-bottom: 30px;
+}
+footer {
+  width: 100%;
+  background-color: #000;
+  margin-top: 50px;
+  color: #fff;
+}
+footer img {
+  max-width: 30px;
+  margin-left: 25px;
+  margin-right: 5px;
+}
+footer p {
+  color: #fff;
+}
+footer i {
+  font-size: 30px !important;
+  float: right;
+  margin-left: 30px;
+  margin-top: 23px;
+}
+footer ul {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-left: 0;
+  padding-left: 0;
+}
+footer ul li {
+  display: inline;
+  padding-right: 20px;
+}
+footer ul li a {
+  color: #fff;
+  font-size: 15px;
+}
+footer ul li a:hover {
+  color: #b3b3b3;
+  text-decoration: none;
+}
+footer h2 {
+  color: #fff;
+}
+.smallPhoto:hover {
+  cursor: pointer;
+}
+.feedbackForm {
+  margin-top: 40px;
+}
+.feedbackForm select {
+  display: inline-block;
+  width: auto;
+}
+#userSettings select {
+  width: 200px;
+}
+#feedback .feedback,
+#feedbackGiven .feedback {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #eaeaea;
+}
+#feedback .feedback img,
+#feedbackGiven .feedback img {
+  max-width: 100px;
+}
+@media (max-width: 990px) {
+  .photo {
+    margin-left: 0;
+    width: 130%;
+    height: auto !important;
+    padding-bottom: 30px;
+  }
+  .imageContainer,
+  .mainPhoto {
+    height: auto !important;
+  }
+  .logo img {
+    margin-bottom: 10px;
+  }
+  .search input,
+  .search select {
+    width: 50%;
+  }
+  .search .btn {
+    margin-top: 10px;
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=app.css.map */

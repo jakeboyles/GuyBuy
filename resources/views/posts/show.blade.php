@@ -16,16 +16,14 @@
     <div class="postShow">
         @include('errors.list')
         <div class="row">
-        <div class="col-md-3">
-        <img src="/uploads/{{$post[0]->photos()->first()->name}}">
-        <?php $i=0; ?>
+        <div class="col-md-3 clearfix">
+        <img class="mainImage" src="/uploads/{{$post[0]->photos()->first()->name}}">
         @foreach($post[0]->photos as $photo)
-                @if($i !== 0)
+        @if(sizeOf($post[0]->photos)>1)
                  <div class="smallPhoto">
                     <img src="/uploads/{{$photo->name}}">
                  </div>
-                @endif
-                <?php $i++; ?>
+        @endif
         @endforeach
         </div>
         <div class="col-md-9">
@@ -33,7 +31,10 @@
         <h4>${{$post[0]->price}}</h4>
         <p>{{$post[0]->body}}</p>
 
-        <a href="#commentPost" class="btn-primary btn">Make Offer</a>
+        @if($post[0]->user_id != Auth::user()->id)
+        <button type="button" data-toggle="modal" data-target="#modal" href="#commentPost" class="btn-primary btn">Make Offer</button>
+        @endif
+
         </div>
         </div>
 
@@ -49,14 +50,10 @@
                      <div class="comment clearfix">
                 @endif
                         <div class="col-md-2">
-                        <a href="/user/profile/{{$comment->author()->first()->id}}"><img class="avatar" src="/avatars/{{$comment->author()->first()->profile_picture}}"></a>
+                        <a href="/user/profile/{{$comment->author()->first()->id}}"><img class="avatar" src="{{Helper::makeAvatar($comment->author()->first()->profile_picture)}}"></a>
                         </div>
                         <div class="col-md-10">
                             <h4>{{$comment->body}}</h4>
-                              @if($comment->offer()->first())
-                            <h5><i class="fa fa-star"></i> {{$comment->offer()->first()->price}}</h5>
-                            @endif
-
                             <p>{{$comment->created_at->diffForHumans()}}</p>
                         </div>
                     </div>
@@ -79,13 +76,6 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="control-label">Want to make an offer?</label>
-
-                    <div>
-                        <input placeholder="What are you offering?" type="text" class="form-control" name="offer" value="{{ old('offer') }}">
-                    </div>
-                </div>
 
                 <input type="hidden" name="post_id" value="{{$post[0]->id}}">
 
@@ -100,6 +90,42 @@
         </div>
     </div>
 </div>
+
+
+
+
+<div id="modal" class="modal fade">
+         <form role="form" id="offerPost" method="POST" action="{{ URL::to('/offer/store') }}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Make Offer</h4>
+      </div>
+      <div class="modal-body">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            <div class="form-group">
+                <p>You can offer either a trade or a cash offer. Please enter your offer below.</p>
+                <label class="control-label">Offer *</label>
+                <input type="hidden" name="post_id" value="{{$post[0]->id}}">
+                <input type="hidden" name="type" value="offer">
+                <div>
+                    <textarea class="form-control" name="content" value="{{ old('content') }}"></textarea>
+                </div>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary">Submit Offer</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+          </form>
+
+</div><!-- /.modal -->
+
+
+
+
 
 @endsection
 

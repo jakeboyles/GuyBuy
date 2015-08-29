@@ -44,7 +44,7 @@ class CommunityController extends Controller {
 	public function index()
 	{
 
-		$posts = Post::with('author','comments.author','community')->get();    
+		$posts = Post::with('author','comments.author','community')->where('sold',NULL)->get();    
 
 
 		return view('pages.home')->with('posts',$posts);
@@ -54,7 +54,7 @@ class CommunityController extends Controller {
 
 	public function showPosts($community)
     {
-    	$posts = Post::with('author','comments.author','community')->orderBy('created_at', 'desc')->where('community_id',$community)->get();
+    	$posts = Post::with('author','comments.author','community')->where('sold',NULL)->orderBy('created_at', 'desc')->where('community_id',$community)->paginate(12);
     	$community = Community::where('id',$community)->get();
         return view('community.home',['posts' => $posts,'community'=>$community]);
     }
@@ -68,7 +68,7 @@ class CommunityController extends Controller {
     public function filter(Request $request)
     {
 
-        $posts = Post::with('author','comments.author','community')->whereBetween('price', array( $request->to , $request->from))->where('community_id',$request->community)->get();
+        $posts = Post::with('author','comments.author','community')->where('sold',NULL)->whereBetween('price', array( $request->to , $request->from))->where('community_id',$request->community)->paginate(12);
     	$community = Community::where('id',$request->community)->get();
         return view('community.home',['posts' => $posts,'community'=>$community]);    
     }

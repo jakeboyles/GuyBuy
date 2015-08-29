@@ -33,10 +33,6 @@ class Comment extends Model implements AuthenticatableContract, CanResetPassword
         return $this->belongsTo('App\Post', 'post_id');
     }
 
-    public function offer()
-    {
-        return $this->hasOne('App\Offer','comment_id');
-    }
 
     public function author()
     {

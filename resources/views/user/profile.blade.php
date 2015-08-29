@@ -14,7 +14,8 @@
 
             <div class="col-md-6">
     	         <div class="pull-left">
-                     <img src="/avatars/{{$user->profile_picture}}">
+
+                     <img src="{{Helper::makeAvatar($user->profile_picture)}}">
     	         </div>
                 <div class="pull-left userInfo">
                     <h3>{{$user->name}}</h3>
@@ -24,7 +25,7 @@
                     <h4>Feedback:  0%</h4>
                     @endif
                     @if($user->community()->first())
-                    <h4>Community: {{$user->community()->first()->name}},{{$user->community()->first()->state}}</h4>
+                    <h4>Community: {{$user->community()->first()->name}}, {{$user->community()->first()->state}}</h4>
                     @else
                       <h4>Community: N/A</h4>
                     @endif
@@ -48,7 +49,7 @@
 
     <div class="col-md-5">
         <div role="tabpanel" class="tab-pane active row" id="posts">
-            <h2>Posts</h2>
+            <h2><i class="fa fa-money"></i> Listings</h2>
 
             @if(sizeof($posts)==0)
                 <div class="post noPost">
@@ -60,14 +61,14 @@
             @endif
 
             @foreach($posts as $post)
-                <div class="post col-md-12">
-                    <div class="pull-left">
+                <div class="post clearfix row">
+                    <div class="col-md-3">
                         <img src="/uploads/{{$post->photos()->first()->name}}">
                     </div>
-                    <div class="pull-left">
+                    <div class="col-md-9">
                         <h2>{{$post->title}}</h2>
                         <p>{{$post->body}}</p>
-                        <p>{{$post->created_at->diffForHumans()}}</p>
+                        <p><i class="fa fa-clock-o"></i> {{$post->created_at->diffForHumans()}}</p>
                     </div>
                 </div>
 
@@ -80,14 +81,14 @@
     <div class="col-md-5 col-md-offset-2">
         
         <div role="tabpanel" class="tab-pane active" id="posts">
-            <h2>Comments</h2>
+            <h2><i class="fa fa-commenting"></i> Comments</h2>
 
             @foreach($comments as $comment)
-                <div class="post col-md-12">
+                <div class="post clearfix col-md-12">
                     <div class="pull-left">
                         <h2>"{{$comment->body}}"</h2>
                         <h4>in... <a href="/{{$comment->post()->first()->community_id}}/post/{{$comment->post()->first()->id}}">{{$comment->post()->first()->title}}</a></h4>
-                        <p>{{$comment->created_at->diffForHumans()}}</p>
+                        <p><i class="fa fa-clock-o"></i> {{$comment->created_at->diffForHumans()}}</p>
                     </div>
                 </div>
 

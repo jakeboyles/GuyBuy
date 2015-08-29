@@ -7,6 +7,7 @@ use App\User;
 use App\Comment;
 use App\Media;
 use App\Category;
+use App\Feedback;
 use Storage;
 use File;
 use Auth;
@@ -62,6 +63,34 @@ class UserController extends Controller {
 		return view('user.profile',['user'=>$user, 'comments'=>$comments, 'posts'=>$posts]);
 	}
 
+
+	public function leaveFeedback($id)
+	{
+		$feedback = Feedback::find($id);
+
+		if($feedback->giver_id==Auth::user()->id && $feedback->positive==null)
+		{
+			return view('feedback.show',['feedback'=>$feedback]);
+		}
+		else
+		{
+			return Redirect('/auth/login');
+    	}
+		
+	}
+
+
+	public function storeFeedback(Request $request)
+	{
+		$feedback = Feedback::find($request->feedback_id);
+
+		$feedback->positive = $request->positive;
+
+		$feedback->save();
+
+		return Redirect('/')->with('message', 'Feedback Has Been Saved, Thank You!');
+    }
+	
 
 
 }

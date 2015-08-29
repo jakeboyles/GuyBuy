@@ -17,7 +17,8 @@ class CreateFeedbackTable extends Migration
             $table->string('post_id')->index();
             $table->string('giver_id')->index();
             $table->string('receiver_id')->index();
-            $table->boolean('positive');
+            $table->boolean('positive')->default(NULL);
+            $table->string('type');
             $table->timestamps();
         });
     }
