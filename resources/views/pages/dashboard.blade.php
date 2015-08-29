@@ -23,7 +23,7 @@
 
 
 
-        <div role="tabpanel" class="tab-pane" id="feedback" class="feedback">
+        <div role="tabpanel" class="tab-pane" id="feedback" class="feedbackGiven">
             <div class="col-md-12">
 
                 @if(sizeOf($feedbacks)==0)
