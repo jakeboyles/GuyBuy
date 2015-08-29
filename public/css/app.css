@@ -36,8 +36,9 @@ img {
   height: 50px;
 }
 .search select {
-  width: 30%;
+  width: 28%;
   padding: 10px 20px;
+  margin-left: 2%;
   float: left;
   height: 50px;
   color: #000;
