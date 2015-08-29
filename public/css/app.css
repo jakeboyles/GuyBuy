@@ -550,6 +550,9 @@ nav ul li {
   font-size: 23px !important;
   border: none;
 }
+.profile .post:last-child {
+  border-bottom: none;
+}
 .profile .nav-tabs {
   margin-top: 40px;
 }
@@ -611,7 +614,7 @@ footer {
   width: 100%;
   background-color: #000;
   color: #fff;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 footer img {
   max-width: 30px;
