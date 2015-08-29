@@ -729,5 +729,8 @@ footer h2 {
     width: 100%;
   }
 }
+.search {
+  min-height: 700px;
+}
 
 /*# sourceMappingURL=app.css.map */

@@ -9,7 +9,7 @@
 <!-- <div class="col-md-3">
 </div>
  -->
-<div class="container-fluid">
+<div class="container-fluid search">
 
 	<div class="col-md-12 main-section">
 
