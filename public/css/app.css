@@ -21,12 +21,20 @@ body h3 i {
 img {
   max-width: 100%;
 }
+.main-container {
+  margin-left: 0;
+  margin-right: 0;
+}
 .btn-primary {
   border-radius: 5px !important;
   padding: 10px 20px;
   background: #E3291C;
   color: #fff;
   border: none !important;
+}
+.container-fluid {
+  padding-left: 30px;
+  padding-right: 30px;
 }
 .search input {
   width: 50%;
@@ -69,9 +77,9 @@ img {
   color: #fff;
   border: 2px solid #b62116;
 }
-.container-fluid {
-  padding-left: 30px;
-  padding-right: 30px;
+.main-container {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:focus,
@@ -340,7 +348,6 @@ nav ul li {
   background-position: bottom;
   width: 110%;
   height: 500px;
-  margin-left: -30px !important;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
 }
 .photo h2,
@@ -603,7 +610,6 @@ nav ul li {
 footer {
   width: 100%;
   background-color: #000;
-  margin-top: 50px;
   color: #fff;
 }
 footer img {
@@ -663,6 +669,42 @@ footer h2 {
 #feedback .feedback img,
 #feedbackGiven .feedback img {
   max-width: 100px;
+}
+.why {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding-bottom: 60px;
+}
+.why .whySection img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0px auto;
+  display: block;
+}
+.why .whySection p {
+  text-align: center;
+  margin-top: 15px;
+}
+.why .whySection h4 {
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 23px;
+  margin-top: 20px;
+}
+.why h2 {
+  text-align: center;
+  font-size: 35px;
+  margin-bottom: 45px;
+}
+.why h2 span {
+  color: #E3291C;
+  font-weight: 600;
+}
+.listings {
+  background-color: #fff;
+  padding-bottom: 50px;
 }
 @media (max-width: 990px) {
   .photo {
