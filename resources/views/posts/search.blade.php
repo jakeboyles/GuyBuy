@@ -11,7 +11,7 @@
  -->
 <div class="container-fluid">
 
-	<div class="col-md-12 main-section search">
+	<div class="col-md-12 main-section searchContainer">
 
 		<h2>{{$search}} Listings</h2>
 
