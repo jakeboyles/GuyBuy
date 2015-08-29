@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('body');
             $table->string('image');
-            $table->int('sold')->default(NULL);
+            $table->integer('sold')->default(NULL);
             $table->decimal('price', 10, 2);
             $table->string('user_id')->index();
             $table->string('category_id')->index();

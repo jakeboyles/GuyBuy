@@ -31,6 +31,18 @@
 
 	<div class="col-md-6">
 		<h3><i class="fa fa-newspaper-o"></i> Recent Listings</h2>
+
+		@if(sizeOf($posts)==0)
+		<div class="homePost">
+			<div class="row">
+				<div class="col-md-9">
+				<h4>No Listings</h4>
+				<h5>How About You <a href="/post/create">Add One?</a></h5>
+				</div>
+			</div>
+		</div>
+		@endif
+
 		@foreach ($posts as $post)
 		<div class="homePost">
 			<div class="row">
@@ -55,6 +67,19 @@
 
 	<div class="col-md-5 col-md-offset-1">
 		<h3><i class="fa fa-thumbs-up"></i> Most Popular Listings</h2>
+
+		@if(sizeOf($mostPopular)==0)
+		<div class="homePost">
+			<div class="row">
+				<div class="col-md-9">
+				<h4>No Listings</h4>
+				<h5>How About You <a href="/post/create">Add One?</a></h5>
+				</div>
+			</div>
+		</div>
+		@endif
+
+
 		@foreach ($mostPopular as $post)
 		<div class="homePost">
 			<div class="row">
