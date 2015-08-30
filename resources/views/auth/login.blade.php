@@ -34,21 +34,27 @@
 
                 <div class="form-group">
                     <div class="col-md-6 col-md-offset-4">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" name="remember"> Remember Me
-                            </label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember"> Remember Me
+                                    </label>
+                                </div>
+                                <br>
+
+                                <button type="submit" class="btn btn-primary" style="margin-right: 15px;">
+                                    Login
+                                </button>
+
+                                <a href="{{ URL::to('/password/email') }}">Forgot Your Password?</a>
+
+                            </div>
+
+                            <div class='col-md-6'>
+                                <a href="/facebook/login"><img src="/images/facebook.png"></a>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-6 col-md-offset-4">
-                        <button type="submit" class="btn btn-primary" style="margin-right: 15px;">
-                            Login
-                        </button>
-
-                        <a href="{{ URL::to('/password/email') }}">Forgot Your Password?</a>
                     </div>
                 </div>
             </form>

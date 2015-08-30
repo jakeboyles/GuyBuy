@@ -41,6 +41,9 @@ Route::get('user/profile/{id}','UserController@showProfile');
 Route::get('feedback/{id}','UserController@leaveFeedback');
 Route::post('feedback/store','UserController@storeFeedback');
 
+Route::get('/facebook/login', 'FacebookController@redirectToProvider');
+Route::get('/facebook/callback','FacebookController@handleProviderCallback');
+
 
 
 Route::post('post/search','PostController@search');
