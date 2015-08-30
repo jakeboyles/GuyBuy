@@ -11,8 +11,7 @@
 
         <div class="col-md-6">
 
-        <i class="fa fa-twitter"></i>
-        <i class="fa fa-facebook"></i>
+        <a href="http://twitter.com/#/buysguys"><i class="fa fa-twitter"></i></a>
         </div>
     </div>
 </footer>
