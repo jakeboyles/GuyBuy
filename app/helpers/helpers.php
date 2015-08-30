@@ -9,11 +9,11 @@ class Helper {
       $imageParse = parse_url($image);
 
  
-      if(!empty($image) && $imageParse['host'] !== 'graph.facebook.com')
+      if(!empty($image) && empty($imageParse['host']))
       {
       	return '/avatars/'.$image;
       }
-      elseif($imageParse['host']=='graph.facebook.com')
+      elseif(!empty($imageParse['host']) && $imageParse['host']=='graph.facebook.com')
       {
         return $image;
       }
