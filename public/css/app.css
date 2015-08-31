@@ -731,6 +731,10 @@ footer h2 {
   .search select {
     width: 100%;
   }
+  .search select {
+    margin-left: 0;
+    margin-top: 10px;
+  }
   .search .btn {
     margin-top: 10px;
     width: 100%;
