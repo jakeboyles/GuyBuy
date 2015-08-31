@@ -785,5 +785,8 @@ footer h2 {
 .pricing .col-xs-5 {
   padding: 0;
 }
+.form-horizontal .control-label {
+  font-weight: 400;
+}
 
 /*# sourceMappingURL=app.css.map */
