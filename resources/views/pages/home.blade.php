@@ -35,19 +35,19 @@
 
 				<div class="col-md-4 whySection">
 					<img src="/images/home1.png">
-					<h4>Find What You Want.</h4>
+					<h4><span class="red">Find</span> What You Want.</h4>
 					<p>No more digging through clothes and bows to find what you want!</p>
 				</div>
 
 				<div class="col-md-4 whySection">
 					<img src="/images/home2.jpg">
-					<h4>Get It Now.</h4>
+					<h4><span class="red">Get</span> It Now.</h4>
 					<p>UPS and Fedex take forever, get what you want today!</p>
 				</div>
 
 				<div class="col-md-4 whySection">
 					<img src="/images/home3.jpg">
-					<h4>Save Cash.</h4>
+					<h4><span class="red">Save</span> Cash.</h4>
 					<P>Barter and negotiate to get a price that you both like.</P>
 				</div>
 
