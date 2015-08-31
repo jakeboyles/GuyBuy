@@ -738,6 +738,7 @@ footer h2 {
   .search .btn {
     margin-top: 10px;
     width: 100%;
+    margin-left: 0;
   }
 }
 .registerForm h3 {
