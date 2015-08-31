@@ -697,8 +697,9 @@ footer h2 {
 }
 .why h2 {
   text-align: center;
-  font-size: 35px;
+  font-size: 45px;
   margin-bottom: 45px;
+  font-weight: 300;
 }
 .why h2 span {
   color: #E3291C;
