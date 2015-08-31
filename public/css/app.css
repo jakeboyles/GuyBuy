@@ -394,7 +394,7 @@ nav ul li {
   color: #fff;
   text-transform: uppercase;
   font-size: 36px;
-  margin-top: 75px;
+  margin-top: 95px;
   font-weight: 300;
 }
 .photo h3 {
@@ -717,6 +717,7 @@ footer h2 {
   }
   .photo h2 {
     font-size: 20px;
+    margin-top: 30px;
   }
   .photo h3,
   .photo h4 {
