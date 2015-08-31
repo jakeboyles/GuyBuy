@@ -340,6 +340,9 @@ nav ul li {
 .postShow .commentSection h2 {
   margin-bottom: 40px;
 }
+.postShow .commentSection h3 {
+  margin-bottom: 35px;
+}
 .photo {
   background-image: url("../images/photo.jpg");
   background-position: bottom;
