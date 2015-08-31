@@ -720,6 +720,9 @@ footer h2 {
   .photo h4 {
     font-size: 25px;
   }
+  .photo select {
+    width: 80%;
+  }
   .imageContainer,
   .mainPhoto {
     height: auto !important;
