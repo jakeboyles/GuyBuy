@@ -426,6 +426,9 @@ nav ul li {
 .home .homePost h4 {
   margin-top: 0;
 }
+.home .homePost h4 a {
+  font-size: 22px;
+}
 .home .homePost:last-child {
   border-bottom: none;
 }
