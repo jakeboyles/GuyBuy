@@ -463,6 +463,9 @@ nav ul li {
 .main-section .homePost .mainPhoto {
   height: 190px;
 }
+.main-section .homePost h4 a {
+  font-size: 23px;
+}
 .main-section .homePost .imageContainer {
   height: 190px;
 }
