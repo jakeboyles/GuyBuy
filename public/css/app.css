@@ -716,7 +716,8 @@ footer h2 {
   .photo h2 {
     font-size: 20px;
   }
-  .photo h3 {
+  .photo h3,
+  .photo h4 {
     font-size: 25px;
   }
   .imageContainer,
