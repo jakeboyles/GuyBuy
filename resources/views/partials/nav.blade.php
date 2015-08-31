@@ -45,6 +45,9 @@
                                 class="fa fa-caret-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
                         <li>
+                            <a href="{{ URL::to('post/create') }}"><i class="fa fa-money"></i> Add Listing</a>
+                        </li>
+                        <li>
                             <a href="{{ URL::to('admin/dashboard') }}"><i class="fa fa-tachometer"></i> Dashboard</a>
                         </li>
 
