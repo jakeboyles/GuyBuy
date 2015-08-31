@@ -20,7 +20,7 @@
             <li role="presentation"><a href="#feedbackGiven" aria-controls="feedbackGiven" role="tab" data-toggle="tab">Feedback Given</a></li>
         </div>
 
-    	<div class="tab-content col-md-9">
+    	<div class="tab-content col-md-8 col-md-offset-1">
 
 
 
