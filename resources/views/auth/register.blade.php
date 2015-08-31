@@ -14,7 +14,19 @@
 
             @include('errors.list')
 
-            <form class="form-horizontal" role="form" method="POST" action="{{ URL::to('/auth/register') }}">
+            <div class="col-md-6 facebookLogin">
+
+                <p>Selling, buying and trading online can be a real pain. Not only can it take a good chunk of any of the money you will potentially make 
+                but it can be dangerous too. Once you find the thing you are actually looking for you either have to hope the person selling it is an actual person, 
+                or you have to buy it and pay for it before you can even see it. It's time for the process to change, let's make it better!</p>
+
+                <a href="/facebook/login"><img src="/images/facebook.png"></a>
+            </div>
+
+
+
+            <form class="registerForm form-horizontal col-md-6" role="form" method="POST" action="{{ URL::to('/auth/register') }}">
+            <h3><i class="fa fa-rocket"></i> Register For Free</h3>
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 
