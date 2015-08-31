@@ -67,7 +67,7 @@
 
                 <form role="form" id="commentPost" method="POST" action="{{ URL::to('/comment/store') }}">
 
-                    <h3><i class="fa fa-plus"></i> Add Comment or Offer</h3>
+                    <h3><i class="fa fa-plus"></i> Add Comment</h3>
 
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
