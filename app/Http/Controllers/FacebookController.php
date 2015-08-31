@@ -46,6 +46,7 @@ class FacebookController extends Controller
             $user->name = $fbuser->getName();
             $user->profile_picture = $fbuser->getAvatar();
             $user->email = $fbuser->getEmail();
+            $user->uid = $fbuser->$uid;
 
             $user->save();
 
