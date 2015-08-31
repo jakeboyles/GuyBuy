@@ -85,7 +85,7 @@
                     <div class="form-group">
                         <div>
                             <button type="submit" class="btn btn-primary">
-                                Create
+                                Post Comment
                             </button>
                         </div>
                     </div>
