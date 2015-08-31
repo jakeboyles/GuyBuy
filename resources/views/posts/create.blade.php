@@ -6,6 +6,8 @@
 {{-- Content --}}
 @section('content')
 
+<div class="container-fluid">
+
     <div>
         <div class="page-header">
             <h2>Create Post</h2>
@@ -95,6 +97,7 @@
             </div>
         </form>
     </div>
+</div>
 
 @endsection
 
