@@ -78,17 +78,21 @@ class CityController extends Controller {
 
     	if($request->from=='' || $request->from == 0)
     	{
-    		$request->from = 99999999999999999.00;
+    		$from = 99999999999999999.00;
+    	}
+    	else
+    	{
+    		$from = $request->from;
     	}
 
     	if(sizeof($allCommunities)>0)
     	{
-    		$posts = Post::with('author','comments.author','community')->where('sold',NULL)->whereBetween('price', array( $request->to , $request->from))->whereIn('community_id', $allCommunities)->where('city_id',$request->city)->paginate(12);
+    		$posts = Post::with('author','comments.author','community')->where('sold',NULL)->whereBetween('price', array( $request->to , $from))->whereIn('community_id', $allCommunities)->where('city_id',$request->city)->paginate(12);
 
     	}
     	else
     	{
-    		$posts = Post::with('author','comments.author','community')->where('sold',NULL)->whereBetween('price', array( $request->to , $request->from))->where('city_id',$request->city)->paginate(12);
+    		$posts = Post::with('author','comments.author','community')->where('sold',NULL)->whereBetween('price', array( $request->to , $from))->where('city_id',$request->city)->paginate(12);
 
     	}
     	$city = City::where('id',$request->city)->get();
