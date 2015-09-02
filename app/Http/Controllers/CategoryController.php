@@ -58,7 +58,9 @@ class CategoryController extends Controller {
     	$posts = Post::with('author','comments.author','community')->where('sold',NULL)->where('category_id',$category)->where('community_id',$community)->paginate(12);
     	$category = Category::where('id',$category)->get();
     	$community = Community::where("id",$community)->get();
-        return view('category.home',['posts' => $posts,'category'=>$category,'community'=>$community]);
+    	$city = City::where('id',$community[0]->city_id)->get();
+    	$communities = Community::all();
+        return view('category.home',['posts' => $posts,'category'=>$category,'community'=>$community,'city'=>$city,"communities"=>$communities]);
     }
 
 
@@ -75,10 +77,72 @@ class CategoryController extends Controller {
 
     public function filter(Request $request)
     {
-        $posts = Post::with('author','comments.author','community')->where('sold',NULL)->where('category_id',$request->category)->whereBetween('price', array( $request->to , $request->from))->where('community_id',$request->community)->get();
+
+        $allCommunities = $request->communities;
+    	$communities = Community::where('city_id',$request->city)->get();
+    	$requestedInfo = $request;
     	$category = Category::where('id',$request->category)->get();
     	$community = Community::where("id",$request->community)->get();
-        return view('category.home',['posts' => $posts,'category'=>$category,'community'=>$community]);   
+
+    	if($request->from=='' || $request->from == 0)
+    	{
+    		$from = 99999999999999999.00;
+    	}
+    	else
+    	{
+    		$from = $request->from;
+    	}
+
+    	if(sizeof($allCommunities)>0)
+    	{
+    		$posts = Post::with('author','comments.author','community')->where('category_id',$request->category)->where('sold',NULL)->whereBetween('price', array( $request->to , $from))->whereIn('community_id', $allCommunities)->where('city_id',$request->city)->paginate(12);
+
+    	}
+    	else
+    	{
+    		$posts = Post::with('author','comments.author','community')->where('category_id',$request->category)->where('sold',NULL)->whereBetween('price', array( $request->to , $from))->where('city_id',$request->city)->paginate(12);
+
+    	}
+    	$city = City::where('id',$request->city)->get();
+        return view('category.home',['posts' => $posts,'category'=>$category,'city'=>$city, 'communities'=>$communities,'request'=>$requestedInfo,'community'=>$community]); 
+    }
+
+
+
+
+
+
+    public function cityFilter(Request $request)
+    {
+
+        $allCommunities = $request->communities;
+    	$communities = Community::where('city_id',$request->city)->get();
+    	$requestedInfo = $request;
+    	$category = Category::where('id',$request->category)->get();
+    	$community = City::where("id",$request->city)->get();
+
+
+    	if($request->from=='' || $request->from == 0)
+    	{
+    		$from = 99999999999999999.00;
+    	}
+    	else
+    	{
+    		$from = $request->from;
+    	}
+
+    	if(sizeof($allCommunities)>0)
+    	{
+    		$posts = Post::with('author','comments.author','community')->where('category_id',$request->category)->where('sold',NULL)->whereBetween('price', array( $request->to , $from))->whereIn('community_id', $allCommunities)->where('city_id',$request->city)->paginate(12);
+
+    	}
+    	else
+    	{
+    		$posts = Post::with('author','comments.author','community')->where('category_id',$request->category)->where('sold',NULL)->whereBetween('price', array( $request->to , $from))->where('city_id',$request->city)->paginate(12);
+
+    	}
+    	$city = City::where('id',$request->city)->get();
+        return view('category.home',['posts' => $posts,'category'=>$category,'city'=>$city, 'communities'=>$communities,'request'=>$requestedInfo,'community'=>$community]); 
     }
 
 

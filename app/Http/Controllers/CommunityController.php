@@ -77,7 +77,7 @@ class CommunityController extends Controller {
     {
 
         $posts = Post::with('author','comments.author','community')->where('sold',NULL)->whereBetween('price', array( $request->to , $request->from))->where('community_id',$request->community)->paginate(12);
-    	$community = Community::where('id',$request->community)->get();
+    	$community = City::where('id',$request->city)->get();
         return view('community.home',['posts' => $posts,'community'=>$community]);    
     }
 
