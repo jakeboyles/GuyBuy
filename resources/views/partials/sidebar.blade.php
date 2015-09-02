@@ -1,16 +1,9 @@
 <div class="sidebar clearfix">
 	<h2>Categories</h2>
 	<ul>
-
-	@if(Request::segment(1) != 'city')
-		@foreach($categories as $categoryNames)
-			<li><a href="/community/{{$community[0]->id}}/category/{{$categoryNames->id}}">{{$categoryNames->name}}</a></li>
-		@endforeach
-	@else
 		@foreach($categories as $categoryNames)
 			<li><a href="/city/{{$city[0]->id}}/category/{{$categoryNames->id}}">{{$categoryNames->name}}</a></li>
 		@endforeach
-	@endif
 	</ul>
 
 	@if (Request::segment(2) !== 'post' && Request::segment(2) !== 'category' && Request::segment(1) != 'category' && Request::segment(1) != 'city')
