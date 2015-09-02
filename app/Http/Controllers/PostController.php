@@ -103,7 +103,8 @@ class PostController extends Controller
         $post = Post::with('author','comments.author','community')->where('id',$id)->get();
         $comments = Comment::with('author')->where('post_id',$id)->get();
         $community = Community::where("id",$community)->get();
-        return view('posts.show',['post' => $post, "comments"=>$comments,'community'=>$community]);
+        $city = City::where('id',$post[0]->city_id)->get();
+        return view('posts.show',['post' => $post, "comments"=>$comments,'community'=>$community,'city'=>$city]);
     }
 
     /**
