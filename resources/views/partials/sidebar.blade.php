@@ -15,7 +15,6 @@
 
 	@if (Request::segment(2) !== 'post' && Request::segment(2) !== 'category' && Request::segment(1) != 'category' && Request::segment(1) != 'city')
 		<h2>Pricing</h2>
-		<?php die("TET"); ?>
 
 		<div class="pricing">
 
