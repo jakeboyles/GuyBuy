@@ -48,8 +48,8 @@
 					<p class="bodyText">{{str_limit($post->body,90)}}</p>
 
 					<p class="commentCount pull-left">{{$post->commentsCount()}} <i class="fa fa-comments"></i></p>
-			<!-- 		<p>{{$post->author()->first()->name}} in {{$post->community()->first()->name}}, {{$post->community()->first()->state}}</p>
-			 -->		</div>
+					<p><i class="fa fa-home"></i> {{$post->community()->first()->name}}, {{$post->community()->first()->state}}</p>
+					</div>
 				</div>
 			</div>
 		</div>
