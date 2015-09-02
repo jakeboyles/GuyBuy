@@ -62,7 +62,7 @@ class PostController extends Controller
         'price' => 'required',
         'category'=>'required',
         'community' => 'required',
-        'city' => 'required',
+        'city_id' => 'required',
         ]);
 
 
