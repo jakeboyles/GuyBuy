@@ -32,7 +32,7 @@ class Post extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $fillable = ['title', 'body','user_id','price','category'];
+    protected $fillable = ['title', 'body','user_id','price','category','city_id'];
 
 
     public function author()
@@ -48,6 +48,11 @@ class Post extends Model implements AuthenticatableContract, CanResetPasswordCon
     public function category()
     {
         return $this->belongsTo('App\Category', 'category_id');
+    }
+
+    public function city()
+    {
+        return $this->belongsTo('App\City', 'city_id');
     }
 
     public function comments()

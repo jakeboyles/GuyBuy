@@ -3,11 +3,12 @@
 use App\Post;
 use App\Comment;
 use App\Community;
+use App\City;
 use Illuminate\Database\Eloquent;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
-class CommunityController extends Controller {
+class CityController extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -52,22 +53,17 @@ class CommunityController extends Controller {
 
 
 
-	public function showPosts($community)
+	public function showPosts($city)
     {
-    	$posts = Post::with('author','comments.author','community')->where('sold',NULL)->orderBy('created_at', 'desc')->where('community_id',$community)->paginate(12);
-    	$community = Community::where('id',$community)->get();
-        return view('community.home',['posts' => $posts,'community'=>$community]);
+    	$communities = Community::where('city_id',$city)->get();
+    	$posts = Post::with('author','comments.author','community')->where('sold',NULL)->orderBy('created_at', 'desc')->where('city_id',$city)->paginate(12);
+    	$city = City::where('id',$city)->get();
+        return view('city.home',['posts' => $posts,'city'=>$city, 'communities'=>$communities]);
     }
 
 
 
     public function choose(Request $request)
-    {
-    	return Redirect('/community/'.$request->communties);
-    }
-
-
-    public function city(Request $request)
     {
     	return Redirect('/city/'.$request->communties);
     }
@@ -76,9 +72,27 @@ class CommunityController extends Controller {
     public function filter(Request $request)
     {
 
-        $posts = Post::with('author','comments.author','community')->where('sold',NULL)->whereBetween('price', array( $request->to , $request->from))->where('community_id',$request->community)->paginate(12);
-    	$community = Community::where('id',$request->community)->get();
-        return view('community.home',['posts' => $posts,'community'=>$community]);    
+    	$allCommunities = $request->communities;
+    	$communities = Community::where('city_id',$request->city)->get();
+    	$requestedInfo = $request;
+
+    	if($request->from=='' || $request->from == 0)
+    	{
+    		$request->from = 99999999999999999.00;
+    	}
+
+    	if(sizeof($allCommunities)>0)
+    	{
+    		$posts = Post::with('author','comments.author','community')->where('sold',NULL)->whereBetween('price', array( $request->to , $request->from))->whereIn('community_id', $allCommunities)->where('city_id',$request->city)->paginate(12);
+
+    	}
+    	else
+    	{
+    		$posts = Post::with('author','comments.author','community')->where('sold',NULL)->whereBetween('price', array( $request->to , $request->from))->where('city_id',$request->city)->paginate(12);
+
+    	}
+    	$city = City::where('id',$request->city)->get();
+        return view('city.home',['posts' => $posts,'city'=>$city, 'communities'=>$communities,'request'=>$requestedInfo]);    
     }
 
 

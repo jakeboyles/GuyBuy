@@ -13,12 +13,12 @@
 			<h2>Need a new beer sign?</h2>
 			<h2>Selling that old pac man game?</h2> 
 			<h4>You're in the right place.</h4>
-			<form class="form-horizontal" role="form" method="POST" action="{{ URL::to('/community/choose') }}">
+			<form class="form-horizontal" role="form" method="POST" action="{{ URL::to('/city/choose') }}">
 			 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 			<select placeholder="Where Do You Live?" data-placeholder="Where Do You Live?" class="selectAuto" name="communties">
 			<option></option>
-			@foreach($communities as $community)
-				<option value="{{$community->id}}">{{$community->name}},{{$community->state}}</option>
+			@foreach($cities as $city)
+				<option value="{{$city->id}}">{{$city->name}},{{$city->state}}</option>
 			@endforeach
 			</select>
 			<button class="btn btn-primary"><i class="fa fa-search"></i> Find Listings</button>

@@ -3,6 +3,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Comment;
 use App\Category;
+use App\City;
 use App\Community;
 use Illuminate\Database\Eloquent;
 use Illuminate\Support\Facades\DB;
@@ -58,6 +59,17 @@ class CategoryController extends Controller {
     	$category = Category::where('id',$category)->get();
     	$community = Community::where("id",$community)->get();
         return view('category.home',['posts' => $posts,'category'=>$category,'community'=>$community]);
+    }
+
+
+    public function showCityPosts($city,$category)
+    {
+    	$posts = Post::with('author','comments.author','community')->where('sold',NULL)->where('category_id',$category)->where('city_id',$city)->paginate(12);
+    	$category = Category::where('id',$category)->get();
+    	$community = City::where("id",$city)->get();
+    	$communities = Community::all();
+    	$city = $community;
+        return view('category.home',['posts' => $posts,'category'=>$category,'community'=>$community,'city'=>$city,'communities'=>$communities]);
     }
 
 

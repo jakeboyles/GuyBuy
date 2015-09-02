@@ -6,6 +6,7 @@ use App\Community;
 use App\User;
 use App\Comment;
 use App\Media;
+use App\City;
 use App\Category;
 use App\Feedback;
 use App\Offer;
@@ -57,9 +58,10 @@ class HomeController extends Controller {
 		$posts = Post::with('author','comments.author','community')->where('sold',NULL)->orderBy('created_at', 'desc')->take(4)->get();   
 		$mostPopular = Post::with('author','comments.author','community')->where('sold',NULL)->take(4)->get(); 
 		$communities = Community::all();
+		$cities = City::all();
 
 
-		return view('pages.home',['posts'=>$posts, 'mostPopular'=>$mostPopular,'communities'=>$communities]);
+		return view('pages.home',['posts'=>$posts, 'mostPopular'=>$mostPopular,'communities'=>$communities,'cities'=>$cities]);
 	}
 
 

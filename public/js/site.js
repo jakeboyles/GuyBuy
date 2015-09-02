@@ -10,6 +10,8 @@ $(".smallPhoto").on("click",function(){
 	$(".mainImage").attr('src',image);
 });
 
+$(".js-example-basic-multiple").select2();
+
 
  $(".money").maskMoney({thousands:'', decimal:'.', allowZero:true})
 

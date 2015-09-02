@@ -208,6 +208,10 @@ nav ul li {
   margin-bottom: 35px;
   border-bottom: 2px solid #cccccc;
 }
+.sidebar select {
+  width: 100%;
+  margin-bottom: 40px !important;
+}
 .sidebar ul {
   padding: 0px;
   margin-left: 0px;
@@ -253,6 +257,9 @@ nav ul li {
 .sidebar .pricing .btn {
   margin-top: 20px;
   margin-left: 0px;
+}
+.sidebar .btn {
+  margin-top: 30px;
 }
 .sidebar h2 {
   border-bottom: 2px dotted #cccccc;

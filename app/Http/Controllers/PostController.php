@@ -7,6 +7,7 @@ use App\Post;
 use App\Community;
 use App\Comment;
 use App\Media;
+use App\City;
 use App\Category;
 use Storage;
 use File;
@@ -40,9 +41,10 @@ class PostController extends Controller
     public function create()
     {
         $communitys = Community::all();
+        $cities = City::all();
         $categories = Category::all();
 
-        return view('posts.create',['communitys'=>$communitys,'categories'=>$categories]);
+        return view('posts.create',['communitys'=>$communitys,'categories'=>$categories, 'cities'=>$cities]);
     }
 
     /**
@@ -60,6 +62,7 @@ class PostController extends Controller
         'price' => 'required',
         'category'=>'required',
         'community' => 'required',
+        'city' => 'required',
         ]);
 
 
@@ -70,6 +73,7 @@ class PostController extends Controller
         $post->price = $request->price;
         $post->category_id = $request->category;
         $post->community_id = $request->community;
+        $post->city_id = $request->city_id;
         $post->save();
 
 

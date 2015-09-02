@@ -67,10 +67,24 @@
 
 
             <div class="form-group">
+                <label class="col-md-4 control-label">City*</label>
+
+                <div class="col-md-6">
+                     <select placeholder="Where is the" data-placeholder="City" class="selectAuto" name="city_id">
+                        <option></option>
+                        @foreach($cities as $city)
+                            <option value="{{$city->id}}">{{$city->name}},{{$city->state}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="form-group">
                 <label class="col-md-4 control-label">Community*</label>
 
                 <div class="col-md-6">
-                     <select placeholder="Where is the" data-placeholder="Where Do You Live?" class="selectAuto" name="community">
+                     <select placeholder="Where is the" data-placeholder="Community" class="selectAuto" name="community">
                         <option></option>
                         @foreach($communitys as $community)
                             <option value="{{$community->id}}">{{$community->name}},{{$community->state}}</option>
@@ -78,6 +92,9 @@
                     </select>
                 </div>
             </div>
+
+
+
 
             <div class="form-group">
                 <label class="col-md-4 control-label">Price / Trade Value *</label>

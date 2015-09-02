@@ -31,7 +31,12 @@ Route::controllers([
 Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
 Route::get('community/{community}', 'CommunityController@showPosts');
-Route::get('{community}/category/{category}', 'CategoryController@showPosts');
+Route::get('city/{city}', 'CityController@showPosts');
+
+Route::get('community/{community}/category/{category}', 'CategoryController@showPosts');
+
+Route::get('city/{city}/category/{category}', 'CategoryController@showCityPosts');
+
 Route::post('category/filter', 'CategoryController@filter');
 
 Route::post('user/update','HomeController@updateUser');
@@ -49,6 +54,12 @@ Route::get('/facebook/callback','FacebookController@handleProviderCallback');
 Route::post('post/search','PostController@search');
 Route::post('community/filter','CommunityController@filter');
 Route::post('community/choose','CommunityController@choose');
+
+Route::post('city/filter','CityController@filter');
+
+
+Route::post('city/choose','CommunityController@city');
+
 
 Route::post('offer/accept/{id}','OfferController@accept');
 

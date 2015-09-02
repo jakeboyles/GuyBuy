@@ -8,7 +8,7 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class Community extends Model implements AuthenticatableContract, CanResetPasswordContract
+class City extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
     use Authenticatable, CanResetPassword;
 
@@ -17,24 +17,19 @@ class Community extends Model implements AuthenticatableContract, CanResetPasswo
      *
      * @var string
      */
-    protected $table = 'community';
+    protected $table = 'cities';
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['name', 'zipcode','state'];
+    protected $fillable = ['name','state'];
 
 
-    public function posts()
+    public function communities()
     {
-        return $this->hasMany('App\Post');
-    }
-
-    public function city()
-    {
-        return $this->belongsTo('App\City', 'city_id');
+        return $this->hasMany('App\Community');
     }
 
 }
