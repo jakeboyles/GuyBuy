@@ -844,5 +844,14 @@ footer h2 {
 .form-horizontal .control-label {
   font-weight: 400;
 }
+.activePost {
+  border-bottom: 2px solid #ededed;
+  margin-bottom: 25px;
+  margin-top: 10px;
+  padding-bottom: 20px;
+}
+.activePost h3 {
+  margin-top: 0;
+}
 
 /*# sourceMappingURL=app.css.map */

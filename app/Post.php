@@ -85,4 +85,9 @@ class Post extends Model implements AuthenticatableContract, CanResetPasswordCon
         return $this->comments()->count();
     }
 
+    public function url()
+    {
+        return "/".$this->community_id.'/post/'.$this->id;
+    }
+
 }

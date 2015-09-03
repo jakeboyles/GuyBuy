@@ -77,8 +77,9 @@ class HomeController extends Controller {
 		$communitys = Community::all() ->lists('name', 'id');
 		$feedbacksGiven = Feedback::where('giver_id',Auth::user()->id)->get();
 		$feedbacks = Feedback::where('receiver_id',Auth::user()->id)->get();
+		$activePosts = Post::where('user_id',Auth::user()->id)->where('sold',null)->get();
 		$offers = Offer::where('post_creator',Auth::user()->id)->whereHas('post', function($q){ $q->where('sold', NULL);})->orderBy('created_at', 'desc')->get();   
-		return view('pages.dashboard',['user'=>$user, 'communities'=>$communitys,'offers'=> $offers,'feedbacks'=>$feedbacks, 'feedbacksGiven'=>$feedbacksGiven]);
+		return view('pages.dashboard',['user'=>$user, 'communities'=>$communitys,'offers'=> $offers,'feedbacks'=>$feedbacks,'activePosts'=> $activePosts, 'feedbacksGiven'=>$feedbacksGiven]);
 	}
 
 

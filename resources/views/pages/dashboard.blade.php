@@ -15,6 +15,7 @@
         <div class="col-md-3 dashboardSidebar">
             <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active"><a href="#offers" aria-controls="offers" role="tab" data-toggle="tab">Offers</a></li>
+            <li role="presentation"><a href="#activePosts" aria-controls="activePosts" role="tab" data-toggle="tab">Active Listings</a></li>
             <li role="presentation"><a href="#userSettings" aria-controls="userSettings" role="tab" data-toggle="tab">User Profile</a></li>
             <li role="presentation"><a href="#feedback" aria-controls="feedback" role="tab" data-toggle="tab">Feedback Received</a></li>
             <li role="presentation"><a href="#feedbackGiven" aria-controls="feedbackGiven" role="tab" data-toggle="tab">Feedback Given</a></li>
@@ -55,6 +56,45 @@
                             <h4><i class="fa fa-thumbs-down"></i> Negative Feedback Received</h4>
                             @endif
                             <a href="/{{$feedback->post()->first()->category_id}}/post/{{$feedback->post()->first()->id}}">{{$feedback->post()->first()->title}}</p></a>
+                        </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+
+
+
+
+            <div role="tabpanel" class="tab-pane" id="activePosts" class="activePosts">
+                <div class="col-md-12">
+
+                    @if(sizeOf($activePosts)==0)
+
+                        <div class="offer noOffer col-md-12">
+
+                        <div>
+                            <h2>No Posts</h2>
+                            <p>You Currently Don't Have Any Active Posts.</p>
+                        </div>
+                    </div>
+
+                    @else
+                    <h2>Active Posts</h2>
+                    @endif
+
+
+                    @foreach($activePosts as $post)
+                    <div class="activePost row col-md-12">
+                        <div class="row">  
+                        <div class="col-md-2">
+                            <a href="{{$post->url()}}"><img src="/uploads/{{$post->photos()->first()->name}}"></a><br>
+                        </div>
+                        <div class="col-md-10">
+                        <h3><a href="{{$post->url()}}">{{$post->title}}</a></h3>
+                        <p class="bodyText">{{str_limit($post->body,90)}}</p>
+                        <p class="commentCount pull-left">{{$post->commentsCount()}} <i class="fa fa-comments"></i></p>
+                        <p class="commentCount pull-right"><i class="fa fa-home"></i> {{$post->community()->first()->name}}, {{$post->community()->first()->state}}</p>
                         </div>
                         </div>
                     </div>
