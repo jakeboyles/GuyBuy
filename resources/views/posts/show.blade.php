@@ -28,14 +28,20 @@
             @endforeach
             </div>
             <div class="col-md-9">
-            <h2>{{$post[0]->title}}</h2>
-            <h4>${{$post[0]->price}}</h4>
-            <p>{{$post[0]->body}}</p>
+            <div class="row">
+                <h2 class="col-md-12">{{$post[0]->title}}</h2>
+                <h5 class="col-md-6"><span class="pull-left">${{$post[0]->price}}</span> <span class="pull-right"><i class="fa fa-home"></i> {{$post[0]->community()->first()->name}}, {{$post[0]->community()->first()->state}}</span></h5>
+                <br>
+                <p class="col-md-12">{{$post[0]->body}}</p>
+            </div>
 
             @if(Auth::check())
             @if($post[0]->user_id != Auth::user()->id)
-            <button type="button" data-toggle="modal" data-target="#modal" href="#commentPost" class="btn-primary btn">Make Offer</button>
+            <button type="button" data-toggle="modal" data-target="#modal" href="#commentPost" class="btn-primary btn"><i class="fa fa-shopping-cart"></i> Make Offer</button>
             @endif
+
+            @else
+            <a class="btn btn-primary" href="/auth/register"><i class="fa fa-shopping-cart"></i> Register to Buy</a>
             @endif
 
             </div>
@@ -64,7 +70,15 @@
                 @endif
 
 
+                @if(!Auth::check() && sizeof($comments)==0)
 
+                <h2><i class="fa fa-comments"></i> Comments</h2>
+                <h4><a href="/auth/register">Register</a> to Post Comments</h4>
+
+                @endif
+
+
+                @if(Auth::check())
                 <form role="form" id="commentPost" method="POST" action="{{ URL::to('/comment/store') }}">
 
                     <h3><i class="fa fa-plus"></i> Add Comment</h3>
@@ -90,6 +104,8 @@
                         </div>
                     </div>
                 </form>
+                @endif
+
             </div>
         </div>
     </div>

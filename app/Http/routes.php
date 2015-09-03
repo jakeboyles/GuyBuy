@@ -64,6 +64,7 @@ Route::post('community/choose','CommunityController@choose');
 
 
 Route::post('offer/accept/{id}','OfferController@accept');
+Route::post('offer/deny/{id}','OfferController@deny');
 
 Route::group(['middleware' => 'auth'], function() {
 	Route::get('/post/create','PostController@create');

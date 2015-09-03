@@ -381,6 +381,17 @@ nav {
 
 	h2 {
 		margin-top:0;
+		margin-bottom:5px;
+		font-weight:600;
+	}
+
+	h5 {
+		font-size:17px;
+		font-weight:400;
+	}
+
+	p {
+		margin-top:10px;
 	}
 
 	.smallPhoto {
@@ -576,7 +587,7 @@ nav {
 
 	.homePost {
 
-		min-height:390px;
+		min-height:440px;
 
 		> div {
 			background-color:rgba(255,255,255,.7);
@@ -720,6 +731,8 @@ nav {
 }
 
 .dashboardSidebar {
+	margin-left:0;
+	padding-left:0;
 	ul {
 		li {
 			display:block;
@@ -728,6 +741,7 @@ nav {
 			a {
 				border:none !important;
 				border-radius:0px;
+				font-size:17px;
 			}
 		}
 
@@ -737,7 +751,7 @@ nav {
 	}
 }
 
-#offers {
+#offers, #feedback, #feedbackGiven {
 	h2 {
 		margin-top:0;
 		margin-bottom:30px;
@@ -753,15 +767,30 @@ nav {
 		margin-bottom:20px;
 		padding-top:10px;
 		border-bottom:2px solid darken(#F8F8F8,6);
+		padding:0;
+		border-radius:10px 10px 0px 0px;
+
+		.denyButton {
+			margin-left:20px;
+		}
 	}
 
 	.offer.noOffer {
 		text-align: left;
+		border:3px solid #fff !important;
 		h2{
 			margin:0;
 			padding:0;
 			margin-bottom:15px;
 			border:none;
+			background:#fff;
+			padding:20px;
+			width:100%;
+			font-size:20px;
+		}
+
+		p {
+			padding:10px 20px;
 		}
 	}
 

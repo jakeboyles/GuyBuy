@@ -31,7 +31,7 @@
                 <li class="{{ (Request::is('auth/login') ? 'active' : '') }}"><a href="{{ URL::to('auth/login') }}"><i
                                 class="fa fa-sign-in"></i> Login</a></li>
                 <li class="{{ (Request::is('auth/register') ? 'active' : '') }}"><a
-                            href="{{ URL::to('auth/register') }}">Register</a></li>
+                            href="{{ URL::to('auth/register') }}"><i class="fa fa-beer"></i> Register</a></li>
             @else
 
                 @if($offers!=='')

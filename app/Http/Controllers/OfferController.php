@@ -101,7 +101,21 @@ class OfferController extends Controller
             $m->to($poster->email, $poster->name)->subject('Listing Sold!');
         });
 
-        return Redirect($post->community_id.'/post/'.$post->id)->with('message', 'Post created');
+        return Redirect($post->community_id.'/post/'.$post->id)->with('message', 'Offer Accepted');
+    }
+
+
+    public function deny($id)
+    {
+
+        $offer = Offer::find($id);
+        $poster = User::findOrFail($offer->post_creator);
+        $user = User::findOrFail($offer->user_id);
+        Mail::send('emails.offerDenied', ['user' => $user, 'offer'=>$offer, 'poster'=>$poster], function ($m) use ($user) {
+            $m->to($user->email, $user->name)->subject('Offer Denied');
+        });
+        $offer->delete();
+        return Redirect('/admin/dashboard')->with('message', 'Post created');
     }
 
     /**

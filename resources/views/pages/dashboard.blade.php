@@ -20,7 +20,7 @@
             <li role="presentation"><a href="#feedbackGiven" aria-controls="feedbackGiven" role="tab" data-toggle="tab">Feedback Given</a></li>
         </div>
 
-    	<div class="tab-content col-md-8 col-md-offset-1">
+    	<div class="tab-content col-md-9">
 
 
 
@@ -31,7 +31,7 @@
 
                         <div class="offer noOffer col-md-12">
 
-                        <div class="pull-left">
+                        <div>
                             <h2>No Feedback</h2>
                             <p>You Currently Don't Have Any Feedback.</p>
                         </div>
@@ -71,7 +71,7 @@
 
                         <div class="offer noOffer col-md-12">
 
-                        <div class="pull-left">
+                        <div>
                             <h2>No Feedback</h2>
                             <p>You Currently Don't Have Any Feedback To Give.</p>
                         </div>
@@ -120,7 +120,7 @@
 
                         <div class="offer noOffer col-md-12">
 
-                        <div class="pull-left">
+                        <div>
                             <h2>No Offers</h2>
                             <p>You Currently Don't Have Any Offers.</p>
                         </div>
@@ -133,19 +133,24 @@
                     <div class="offer col-md-12">
 
                         <div class="pull-left">  
-                            <a href="/user/profile/{{$offer->author()->first()->id}}"><img src="{{Helper::makeAvatar($offer->author()->first()->profile_picture)}}"></a><br>
-                            
-                            <form class="form-horizontal" role="form" method="POST" action="{{ URL::to('/offer/accept/'.$offer->id) }}">
-                              <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <button class="btn btn-primary acceptOffer">Accept Offer</button>
-                            </form>
-                        
+                            <a href="/user/profile/{{$offer->author()->first()->id}}"><img src="{{Helper::makeAvatar($offer->author()->first()->profile_picture)}}"></a><br>            
                         </div>
 
                         <div class="pull-left">
                             <h4>{{$offer->content}}</h4>
                             <p>Post: <a href="/{{$offer->post()->first()->category_id}}/post/{{$offer->post()->first()->id}}">{{$offer->post()->first()->title}}</a></p>
                             <p>{{$offer->created_at->diffForHumans()}}</p>
+
+                            <form class="pull-left" role="form" method="POST" action="{{ URL::to('/offer/accept/'.$offer->id) }}">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <button class="btn btn-primary acceptOffer">Accept Offer</button>
+                            </form>
+
+                            <form class="pull-left denyButton" role="form" method="POST" action="{{ URL::to('/offer/deny/'.$offer->id) }}">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <button class="btn btn-primary acceptOffer">Deny Offer</button>
+                            </form>
+
                         </div>
                     </div>
                     @endforeach

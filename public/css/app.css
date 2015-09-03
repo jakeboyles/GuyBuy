@@ -304,6 +304,15 @@ nav ul li {
 }
 .postShow h2 {
   margin-top: 0;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.postShow h5 {
+  font-size: 17px;
+  font-weight: 400;
+}
+.postShow p {
+  margin-top: 10px;
 }
 .postShow .smallPhoto {
   width: 30%;
@@ -463,7 +472,7 @@ nav ul li {
   margin-left: 0;
 }
 .main-section .homePost {
-  min-height: 390px;
+  min-height: 440px;
 }
 .main-section .homePost > div {
   background-color: rgba(255, 255, 255, 0.7);
@@ -571,6 +580,10 @@ nav ul li {
 .profile .nav-tabs {
   margin-top: 40px;
 }
+.dashboardSidebar {
+  margin-left: 0;
+  padding-left: 0;
+}
 .dashboardSidebar ul li {
   display: block;
   width: 100%;
@@ -578,45 +591,81 @@ nav ul li {
 .dashboardSidebar ul li a {
   border: none !important;
   border-radius: 0px;
+  font-size: 17px;
 }
-#offers h2 {
+#offers h2,
+#feedback h2,
+#feedbackGiven h2 {
   margin-top: 0;
   margin-bottom: 30px;
 }
-#offers .btn {
+#offers .btn,
+#feedback .btn,
+#feedbackGiven .btn {
   font-size: 13px;
   margin-top: 10px;
   padding: 8px 10px;
 }
-#offers .offer {
+#offers .offer,
+#feedback .offer,
+#feedbackGiven .offer {
   padding-bottom: 30px;
   margin-bottom: 20px;
   padding-top: 10px;
   border-bottom: 2px solid #e9e9e9;
+  padding: 0;
+  border-radius: 10px 10px 0px 0px;
 }
-#offers .offer.noOffer {
+#offers .offer .denyButton,
+#feedback .offer .denyButton,
+#feedbackGiven .offer .denyButton {
+  margin-left: 20px;
+}
+#offers .offer.noOffer,
+#feedback .offer.noOffer,
+#feedbackGiven .offer.noOffer {
   text-align: left;
+  border: 3px solid #fff !important;
 }
-#offers .offer.noOffer h2 {
+#offers .offer.noOffer h2,
+#feedback .offer.noOffer h2,
+#feedbackGiven .offer.noOffer h2 {
   margin: 0;
   padding: 0;
   margin-bottom: 15px;
   border: none;
+  background: #fff;
+  padding: 20px;
+  width: 100%;
+  font-size: 20px;
 }
-#offers .offer:last-child {
+#offers .offer.noOffer p,
+#feedback .offer.noOffer p,
+#feedbackGiven .offer.noOffer p {
+  padding: 10px 20px;
+}
+#offers .offer:last-child,
+#feedback .offer:last-child,
+#feedbackGiven .offer:last-child {
   border: none;
 }
-#offers img {
+#offers img,
+#feedback img,
+#feedbackGiven img {
   border-radius: 50%;
   margin-right: 20px;
   max-height: 90px;
   max-width: 90px;
 }
-#offers h4 {
+#offers h4,
+#feedback h4,
+#feedbackGiven h4 {
   font-size: 20px;
   margin-top: 0;
 }
-#offers p {
+#offers p,
+#feedback p,
+#feedbackGiven p {
   font-size: 14px;
 }
 .dashboard {
