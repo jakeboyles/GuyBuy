@@ -436,11 +436,11 @@ nav ul li {
   padding-bottom: 14px;
 }
 .home .homePost {
-  border-bottom: 2px solid #f2f2f2;
+  border-bottom: 2px solid #fcfcfc;
   padding-bottom: 25px;
 }
 .home .homePost img {
-  max-width: 90px;
+  max-height: 90px;
 }
 .home .homePost h4 {
   margin-top: 0;
