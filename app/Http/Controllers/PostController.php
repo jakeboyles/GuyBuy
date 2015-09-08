@@ -78,18 +78,32 @@ class PostController extends Controller
 
 
         $files = $request->file('filefield');
+        $file_count = count($files);
+        $uploadcount = 0;
         foreach ($files as $file) {
             // Validate each file
-                $file = $file;
-                $name = time(). '-' .$file->getClientOriginalName();
-                $upload_success = $file->move(public_path().'/uploads/', $name);
-                $media = new Media();
-                $media->name = $name;
-                $media->post_id = $post->id;
-                $media->save();
+                $rules = array('filefield' => 'required|mimes:png,gif,jpeg'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
+                $validator = Validator::make(array('filefield'=> $file), $rules);
+                if($validator->passes()){
+                    $file = $file;
+                    $name = time(). '-' .$file->getClientOriginalName();
+                    $upload_success = $file->move(public_path().'/uploads/', $name);
+                    $media = new Media();
+                    $media->name = $name;
+                    $media->post_id = $post->id;
+                    $media->save();
+                    $uploadcount ++;
+                }
         }
 
-        return Redirect('/')->with('message', 'Post created');
+        if($uploadcount == $file_count){
+          return Redirect('/')->with('message', 'Post created');
+        } 
+        else {
+        $post->delete();
+          return Redirect::to('/post/create')->withInput()->withErrors($validator);
+        }
+
     }
 
     /**
@@ -136,9 +150,15 @@ class PostController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function deletePost(Request $request)
     {
-        //
+        $id = $request->listing;
+        $post = Post::find($id);
+        $post->sold = 2;
+        $post->save();
+
+
+        return json_encode($post);
     }
 
 

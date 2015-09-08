@@ -89,6 +89,8 @@
                         <div class="row">  
                         <div class="col-md-2">
                             <a href="{{$post->url()}}"><img src="/uploads/{{$post->photos()->first()->name}}"></a><br>
+                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <a href="#" id="closeListing" data-id="{{$post->id}}" class="pull-left btn btn-primary">Close Listing</a>
                         </div>
                         <div class="col-md-10">
                         <h3><a href="{{$post->url()}}">{{$post->title}}</a></h3>

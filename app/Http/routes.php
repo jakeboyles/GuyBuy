@@ -71,6 +71,7 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::post('/post/store','PostController@store');
 	Route::post('/comment/store','CommentController@store');
 	Route::post('/offer/store','OfferController@store');
+	Route::post('/listing/delete','PostController@deletePost');
 
 });
 
