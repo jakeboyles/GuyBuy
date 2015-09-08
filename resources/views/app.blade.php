@@ -7,12 +7,12 @@
 
     <title>BuysGuys: Buy,Trade &amp; Sell</title>
     @section('meta_keywords')
-        <meta name="keywords" content="your, awesome, keywords, here"/>
+        <meta name="keywords" content="men,sales,craigslist,competitor,cincinnati"/>
     @show @section('meta_author')
         <meta name="author" content="Jake Boyles"/>
     @show @section('meta_description')
         <meta name="description"
-              content="Lorem ipsum dolor sit amet, nihil fabulas et sea, nam posse menandri scripserit no, mei."/>
+              content="Where men buy, sell and trade online. Looking for video games, electronics, car parts or more? Then you need to look no further!"/>
     @show
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link href="{{ asset('css/app.css') }}" rel="stylesheet">
