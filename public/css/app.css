@@ -865,7 +865,8 @@ footer h2 {
   margin-top: 0;
 }
 .login img {
-  max-width: 120px;
+  max-width: 210px;
+  float: right;
 }
 
 /*# sourceMappingURL=app.css.map */
