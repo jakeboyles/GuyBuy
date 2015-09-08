@@ -595,20 +595,23 @@ nav ul li {
 }
 #offers h2,
 #feedback h2,
-#feedbackGiven h2 {
+#feedbackGiven h2,
+#activePost h2 {
   margin-top: 0;
   margin-bottom: 30px;
 }
 #offers .btn,
 #feedback .btn,
-#feedbackGiven .btn {
+#feedbackGiven .btn,
+#activePost .btn {
   font-size: 13px;
   margin-top: 10px;
   padding: 8px 10px;
 }
 #offers .offer,
 #feedback .offer,
-#feedbackGiven .offer {
+#feedbackGiven .offer,
+#activePost .offer {
   padding-bottom: 30px;
   margin-bottom: 20px;
   padding-top: 10px;
@@ -618,18 +621,21 @@ nav ul li {
 }
 #offers .offer .denyButton,
 #feedback .offer .denyButton,
-#feedbackGiven .offer .denyButton {
+#feedbackGiven .offer .denyButton,
+#activePost .offer .denyButton {
   margin-left: 20px;
 }
 #offers .offer.noOffer,
 #feedback .offer.noOffer,
-#feedbackGiven .offer.noOffer {
+#feedbackGiven .offer.noOffer,
+#activePost .offer.noOffer {
   text-align: left;
   border: 3px solid #fff !important;
 }
 #offers .offer.noOffer h2,
 #feedback .offer.noOffer h2,
-#feedbackGiven .offer.noOffer h2 {
+#feedbackGiven .offer.noOffer h2,
+#activePost .offer.noOffer h2 {
   margin: 0;
   padding: 0;
   margin-bottom: 15px;
@@ -641,17 +647,20 @@ nav ul li {
 }
 #offers .offer.noOffer p,
 #feedback .offer.noOffer p,
-#feedbackGiven .offer.noOffer p {
+#feedbackGiven .offer.noOffer p,
+#activePost .offer.noOffer p {
   padding: 10px 20px;
 }
 #offers .offer:last-child,
 #feedback .offer:last-child,
-#feedbackGiven .offer:last-child {
+#feedbackGiven .offer:last-child,
+#activePost .offer:last-child {
   border: none;
 }
 #offers img,
 #feedback img,
-#feedbackGiven img {
+#feedbackGiven img,
+#activePost img {
   border-radius: 50%;
   margin-right: 20px;
   max-height: 90px;
@@ -659,13 +668,15 @@ nav ul li {
 }
 #offers h4,
 #feedback h4,
-#feedbackGiven h4 {
+#feedbackGiven h4,
+#activePost h4 {
   font-size: 20px;
   margin-top: 0;
 }
 #offers p,
 #feedback p,
-#feedbackGiven p {
+#feedbackGiven p,
+#activePost p {
   font-size: 14px;
 }
 .dashboard {
