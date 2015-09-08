@@ -8,7 +8,7 @@
 
 <div class="container-fluid">
 
-    <div class="col-md-12 main-section dashboard minContainer">
+    <div class="col-md-12 main-section dashboard login minContainer">
 
         <h2>Login</h2>
              @include('errors.list')

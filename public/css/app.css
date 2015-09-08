@@ -864,5 +864,8 @@ footer h2 {
 .activePost h3 {
   margin-top: 0;
 }
+.login img {
+  max-width: 120px;
+}
 
 /*# sourceMappingURL=app.css.map */
