@@ -794,6 +794,9 @@ footer h2 {
   .facebookLogin p {
     padding-right: 0 !important;
   }
+  .postShow img {
+    margin-bottom: 15px;
+  }
   .photo {
     margin-left: 0;
     height: auto !important;
