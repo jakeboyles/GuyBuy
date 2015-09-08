@@ -792,7 +792,7 @@ footer h2 {
     margin-bottom: 40px;
   }
   .facebookLogin p {
-    padding-right: 0;
+    padding-right: 0 !important;
   }
   .photo {
     margin-left: 0;
