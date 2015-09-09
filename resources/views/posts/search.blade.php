@@ -43,7 +43,7 @@
 					<h4>${{$post->price}}</h4>
 
 					
-					<p class="bodyText">{{$post->body}}</p>
+					<p class="bodyText">{{str_limit($post->body,90)}}</p>
 
 					<p class="commentCount pull-left">{{$post->commentsCount()}} <i class="fa fa-comments"></i></p>
 					<p class="pull-right"><i class='fa fa-home'></i> {{$post->community()->first()->name}}, {{$post->community()->first()->state}}</p>
