@@ -364,6 +364,7 @@ nav ul li {
   background-position: bottom;
   height: 500px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
+  background-size:cover;
 }
 .photo h2,
 .photo h3,
@@ -440,7 +441,7 @@ nav ul li {
   padding-bottom: 25px;
 }
 .home .homePost img {
-  max-height: 90px;
+  max-height: auto;
 }
 .home .homePost h4 {
   margin-top: 0;
